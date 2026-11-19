@@ -1,0 +1,318 @@
+{
+ "title": "Terms of Service",
+ "blocks": [
+  {
+   "type": "p",
+   "text": "Last updated: October 13, 2026"
+  },
+  {
+   "type": "p",
+   "text": "These Terms of Service (“Terms”) govern access to and use of PingMyBio, including https://pingmybio.com, seller dashboards, Classic and AI storefronts, checkout, bookings, courses, and related features (the “Service”). PingMyBio is operated by the team behind PingMyBio.com (“PingMyBio,” “we,” “us,” or “our”)."
+  },
+  {
+   "type": "p",
+   "text": "By creating an account, signing in (including with Google), subscribing as a seller, listing products, or using the Service as a buyer, you agree to these Terms and our Privacy Policy. If you do not agree, do not use the Service."
+  },
+  {
+   "type": "p",
+   "text": "These Terms are provided for clarity for users and third-party platforms. They are not legal advice."
+  },
+  {
+   "type": "h",
+   "level": 3,
+   "text": "1. The Service"
+  },
+  {
+   "type": "p",
+   "text": "PingMyBio is an AI link-in-bio / creator storefront platform. Sellers get one bio URL with:"
+  },
+  {
+   "type": "li",
+   "text": "a Classic storefront (tap-to-buy style), and/or"
+  },
+  {
+   "type": "li",
+   "text": "an AI storefront (chat-style guidance toward products, services, or bookings),"
+  },
+  {
+   "type": "p",
+   "text": "and tools to sell digital products, physical goods, coaching/services, courses, and related offers."
+  },
+  {
+   "type": "p",
+   "text": "We may change, suspend, or discontinue features. We try to give reasonable notice for material changes when practical."
+  },
+  {
+   "type": "p",
+   "text": "Early-access or promotional offers (for example, free trial periods) are described at signup and may change."
+  },
+  {
+   "type": "h",
+   "level": 3,
+   "text": "2. Eligibility"
+  },
+  {
+   "type": "p",
+   "text": "You must be at least 18 (or the age of majority where you live) to use PingMyBio as a seller. Buyers must be old enough to form a binding contract where they live. By using the Service, you represent that you meet these requirements."
+  },
+  {
+   "type": "h",
+   "level": 3,
+   "text": "3. Accounts and sign-in"
+  },
+  {
+   "type": "p",
+   "text": "You agree to:"
+  },
+  {
+   "type": "li",
+   "text": "Provide accurate registration information"
+  },
+  {
+   "type": "li",
+   "text": "Keep credentials and linked sign-in methods secure"
+  },
+  {
+   "type": "li",
+   "text": "Accept responsibility for activity under your account"
+  },
+  {
+   "type": "p",
+   "text": "You may sign in with email or supported providers such as Google. Your use of Google Sign-In is also subject to Google’s terms and privacy policy."
+  },
+  {
+   "type": "p",
+   "text": "Notify us promptly of suspected unauthorized access. We may suspend or terminate accounts that violate these Terms or create risk for the platform or other users."
+  },
+  {
+   "type": "h",
+   "level": 3,
+   "text": "4. Seller terms"
+  },
+  {
+   "type": "h",
+   "level": 4,
+   "text": "4.1 Your store and content"
+  },
+  {
+   "type": "p",
+   "text": "You retain ownership of content you upload (products, images, copy, FAQs, branding). You grant PingMyBio a non-exclusive, worldwide license to host, display, process, and distribute that content only as needed to operate the Service (for example, rendering your public storefront, running AI answers based on your listings/FAQs, and processing orders)."
+  },
+  {
+   "type": "p",
+   "text": "You represent that you have all rights needed to publish your content and that it does not infringe third-party rights or violate law."
+  },
+  {
+   "type": "h",
+   "level": 4,
+   "text": "4.2 Prohibited use"
+  },
+  {
+   "type": "p",
+   "text": "You may not use PingMyBio to offer illegal goods or services, fraud, IP-infringing content, malware, hate or abusive content, or anything that violates consumer protection, privacy, or export rules. We may remove content or suspend stores that violate these rules."
+  },
+  {
+   "type": "h",
+   "level": 4,
+   "text": "4.3 Pricing, fees, fulfillment, refunds"
+  },
+  {
+   "type": "p",
+   "text": "You set prices and are responsible for fulfilling orders, delivering digital goods, honoring bookings, taxes you owe, and customer support for your buyers."
+  },
+  {
+   "type": "p",
+   "text": "Platform transaction fees: PingMyBio’s current product positioning includes 0% PingMyBio platform transaction fees on creator sales processed through the Service; payment processor fees (for example, Stripe) and any taxes still apply. We may change fee structures with notice as described in plan pages or these Terms."
+  },
+  {
+   "type": "p",
+   "text": "Refunds and chargebacks for seller products are primarily between you and your buyer (and your payment processor), unless PingMyBio states otherwise for a specific PingMyBio billing product."
+  },
+  {
+   "type": "h",
+   "level": 4,
+   "text": "4.4 Seller subscriptions / plans"
+  },
+  {
+   "type": "p",
+   "text": "Seller access may require a paid plan. Prices, cycles, and features are shown at signup or in settings. Plans may renew until cancelled. Failed payment may limit access. Subscription fees are generally non-refundable except where required by law."
+  },
+  {
+   "type": "h",
+   "level": 4,
+   "text": "4.5 Integrations"
+  },
+  {
+   "type": "p",
+   "text": "Optional integrations (for example, Cal.com, calendars, Stripe Connect-style flows if offered) are subject to those providers’ terms. You are responsible for configuring them correctly."
+  },
+  {
+   "type": "h",
+   "level": 3,
+   "text": "5. Buyer terms"
+  },
+  {
+   "type": "p",
+   "text": "When you purchase from or book with a seller on PingMyBio:"
+  },
+  {
+   "type": "li",
+   "text": "Your contract for the product or service is with that seller, not with PingMyBio as merchant of record, unless we explicitly say otherwise for a specific PingMyBio product"
+  },
+  {
+   "type": "li",
+   "text": "Descriptions, pricing, and fulfillment are controlled by the seller"
+  },
+  {
+   "type": "li",
+   "text": "Quality, delivery, and refund disputes should start with the seller; PingMyBio may help where appropriate but is not a party to every sale"
+  },
+  {
+   "type": "p",
+   "text": "You agree to provide accurate checkout information and to pay amounts shown at purchase."
+  },
+  {
+   "type": "h",
+   "level": 3,
+   "text": "6. AI storefront features"
+  },
+  {
+   "type": "p",
+   "text": "AI responses are generated from seller-provided information and may be incorrect or incomplete. PingMyBio does not guarantee AI output. Sellers should keep listings and FAQs accurate. Buyers should not treat AI answers as professional, medical, legal, or financial advice."
+  },
+  {
+   "type": "h",
+   "level": 3,
+   "text": "7. Payments"
+  },
+  {
+   "type": "p",
+   "text": "Checkout and subscription payments may be processed by Stripe or other processors. Their terms and privacy policies apply to payment data they process. PingMyBio is not responsible for processor outages outside our reasonable control."
+  },
+  {
+   "type": "h",
+   "level": 3,
+   "text": "8. Intellectual property"
+  },
+  {
+   "type": "p",
+   "text": "PingMyBio’s name, logos, software, and design are owned by us or our licensors. You may not copy, scrape, reverse engineer, or misuse the brand or platform except as allowed by these Terms or applicable law."
+  },
+  {
+   "type": "h",
+   "level": 3,
+   "text": "9. Acceptable use"
+  },
+  {
+   "type": "p",
+   "text": "You may not:"
+  },
+  {
+   "type": "li",
+   "text": "Abuse, overload, or disrupt the Service"
+  },
+  {
+   "type": "li",
+   "text": "Attempt unauthorized access to systems or data"
+  },
+  {
+   "type": "li",
+   "text": "Use the Service to spam or harass"
+  },
+  {
+   "type": "li",
+   "text": "Circumvent security or billing controls"
+  },
+  {
+   "type": "h",
+   "level": 3,
+   "text": "10. Disclaimer of warranties"
+  },
+  {
+   "type": "p",
+   "text": "THE SERVICE IS PROVIDED “AS IS” AND “AS AVAILABLE” WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. WE DO NOT WARRANT THAT THE SERVICE WILL BE UNINTERRUPTED, ERROR-FREE, OR SECURE."
+  },
+  {
+   "type": "h",
+   "level": 3,
+   "text": "11. Limitation of liability"
+  },
+  {
+   "type": "p",
+   "text": "TO THE MAXIMUM EXTENT PERMITTED BY LAW, PINGMYBIO WILL NOT BE LIABLE FOR INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR LOST PROFITS, DATA, OR GOODWILL, ARISING FROM YOUR USE OF THE SERVICE."
+  },
+  {
+   "type": "p",
+   "text": "OUR TOTAL LIABILITY FOR ANY CLAIM RELATED TO THE SERVICE IS LIMITED TO THE GREATER OF (A) AMOUNTS YOU PAID TO PINGMYBIO FOR THE SERVICE IN THE TWELVE (12) MONTHS BEFORE THE CLAIM OR (B) ONE HUNDRED US DOLLARS (USD $100)."
+  },
+  {
+   "type": "p",
+   "text": "Some places do not allow certain limits; in those places, our liability is limited to the fullest extent allowed."
+  },
+  {
+   "type": "h",
+   "level": 3,
+   "text": "12. Indemnification"
+  },
+  {
+   "type": "p",
+   "text": "You agree to indemnify and hold harmless PingMyBio from claims, damages, and expenses (including reasonable attorneys’ fees) arising from your content, your store, your breach of these Terms, or your violation of law or third-party rights."
+  },
+  {
+   "type": "h",
+   "level": 3,
+   "text": "13. Termination"
+  },
+  {
+   "type": "p",
+   "text": "You may stop using the Service at any time. We may suspend or terminate access for violations, risk, or legal requirements. Sections that should survive (including IP, disclaimers, limits of liability, and indemnity) survive termination."
+  },
+  {
+   "type": "h",
+   "level": 3,
+   "text": "14. Governing law"
+  },
+  {
+   "type": "p",
+   "text": "These Terms are governed by the laws applicable to PingMyBio’s place of business, without regard to conflict-of-law rules, except where mandatory consumer laws in your country say otherwise. Courts in that jurisdiction will hear disputes except where those consumer laws require otherwise."
+  },
+  {
+   "type": "h",
+   "level": 3,
+   "text": "15. Changes"
+  },
+  {
+   "type": "p",
+   "text": "We may update these Terms. The current version will be posted at https://pingmybio.com/terms with an updated “Last updated” date. Material changes may also be communicated by email or in-product notice. Continued use after the effective date constitutes acceptance where permitted by law."
+  },
+  {
+   "type": "h",
+   "level": 3,
+   "text": "16. Contact"
+  },
+  {
+   "type": "p",
+   "text": "Questions about these Terms:"
+  },
+  {
+   "type": "li",
+   "text": "Website: https://pingmybio.com"
+  },
+  {
+   "type": "li",
+   "text": "Terms URL: https://pingmybio.com/terms"
+  },
+  {
+   "type": "li",
+   "text": "Privacy Policy: https://pingmybio.com/privacy"
+  },
+  {
+   "type": "li",
+   "text": "Contact: info@pingmybio.com"
+  },
+  {
+   "type": "p",
+   "text": "Have a qualified attorney review these Terms for your entity, location, and regulated activities."
+  }
+ ]
+}

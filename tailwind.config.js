@@ -3,9 +3,17 @@ export default {
   content: ['./index.html', './src/**/*.{ts,tsx}'],
   theme: {
     extend: {
+      colors: {
+        background: '#FFFFFF',
+        ink: '#000000',
+        muted: '#6F6F6F',
+      },
       fontFamily: {
-        heading: ["'Instrument Serif'", 'serif'],
-        body: ["'Barlow'", 'sans-serif'],
+        display: ["'Instrument Serif'", 'serif'],
+        body: ['Inter', 'system-ui', 'sans-serif'],
+      },
+      maxWidth: {
+        '7xl': '80rem',
       },
     },
   },

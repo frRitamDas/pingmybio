@@ -1,0 +1,406 @@
+{
+ "title": "Privacy Policy",
+ "blocks": [
+  {
+   "type": "p",
+   "text": "Last updated: October 28, 2026"
+  },
+  {
+   "type": "p",
+   "text": "PingMyBio (“PingMyBio,” “we,” “us,” or “our”) operates https://pingmybio.com and related applications that provide an AI link-in-bio / creator storefront (Classic storefront or AI chat storefront), product listings, bookings, courses, checkout, and seller tools (collectively, the “Service”)."
+  },
+  {
+   "type": "p",
+   "text": "This Privacy Policy explains what information we collect, how we use it, how we share it, and the choices you have. By using PingMyBio as a seller, buyer, or visitor, you agree to this policy. If you do not agree, do not use the Service."
+  },
+  {
+   "type": "p",
+   "text": "This page is intended for transparency (including for third-party sign-in providers such as Google). It is not legal advice."
+  },
+  {
+   "type": "h",
+   "level": 3,
+   "text": "1. Who this policy covers"
+  },
+  {
+   "type": "li",
+   "text": "Sellers — creators and businesses who create accounts, configure storefronts, list products or services, and use the seller dashboard."
+  },
+  {
+   "type": "li",
+   "text": "Buyers — people who browse public storefronts, purchase products, book sessions, or chat with a store’s AI assistant."
+  },
+  {
+   "type": "li",
+   "text": "Visitors — people who view our marketing site or public storefronts without signing in."
+  },
+  {
+   "type": "h",
+   "level": 3,
+   "text": "2. Information we collect"
+  },
+  {
+   "type": "h",
+   "level": 4,
+   "text": "2.1 Account and profile information"
+  },
+  {
+   "type": "p",
+   "text": "When you sign up or sign in, we collect information such as:"
+  },
+  {
+   "type": "li",
+   "text": "Email address"
+  },
+  {
+   "type": "li",
+   "text": "Authentication data (including when you use Google Sign-In or other providers we enable)"
+  },
+  {
+   "type": "li",
+   "text": "Store name, handle/username, bio, avatar, social links, and branding you choose to provide"
+  },
+  {
+   "type": "p",
+   "text": "Authentication is provided through our auth infrastructure partner (Supabase). Google may share basic profile information (for example, name and email) according to your Google account permissions and Google’s privacy policy."
+  },
+  {
+   "type": "h",
+   "level": 4,
+   "text": "2.2 Store, product, and commerce data"
+  },
+  {
+   "type": "p",
+   "text": "Sellers may upload or configure product titles, descriptions, prices, images, FAQs, courses, availability, booking settings, and related store content."
+  },
+  {
+   "type": "p",
+   "text": "Buyers may provide name, email, order notes, and other details needed to complete a purchase, digital delivery, or booking."
+  },
+  {
+   "type": "h",
+   "level": 4,
+   "text": "2.3 AI storefront / chat data"
+  },
+  {
+   "type": "p",
+   "text": "On AI storefronts, buyers may send messages to an assistant that uses seller-provided listings and FAQs. We may store chat messages and related session identifiers to:"
+  },
+  {
+   "type": "li",
+   "text": "Deliver the conversation"
+  },
+  {
+   "type": "li",
+   "text": "Maintain reliability and security"
+  },
+  {
+   "type": "li",
+   "text": "Help sellers understand buyer questions (where that feature is available)"
+  },
+  {
+   "type": "p",
+   "text": "Do not submit sensitive personal data in chat that you do not want processed for these purposes."
+  },
+  {
+   "type": "h",
+   "level": 4,
+   "text": "2.4 Usage and technical data"
+  },
+  {
+   "type": "p",
+   "text": "We automatically collect information such as:"
+  },
+  {
+   "type": "li",
+   "text": "Pages and storefronts viewed, and product interactions (for example, opening a product or starting checkout)"
+  },
+  {
+   "type": "li",
+   "text": "Device and browser type, a one-way hash of IP address mixed with browser details (we do not store raw IP in analytics), approximate country from the CDN, and referral source"
+  },
+  {
+   "type": "li",
+   "text": "Cookies and similar technologies (see Cookies), including a short-lived visit cookie so taps can be tied to a visit"
+  },
+  {
+   "type": "li",
+   "text": "Performance and error diagnostics (for example, Vercel Speed Insights or similar tooling we enable)"
+  },
+  {
+   "type": "p",
+   "text": "We do not place Google Analytics, advertising pixels, or other ad trackers on creator public pages. Analytics are for the creator’s own dashboard only. We do not sell visitor personal information."
+  },
+  {
+   "type": "h",
+   "level": 4,
+   "text": "2.5 Payment information"
+  },
+  {
+   "type": "p",
+   "text": "Payments for buyer purchases and seller subscriptions / plans may be processed by Stripe (or another payment partner we disclose). Card numbers and sensitive payment credentials are handled by the payment processor; PingMyBio does not store full card numbers on our servers. We receive limited payment metadata needed to fulfill orders, confirm subscriptions, and prevent fraud (for example, payment status and transaction references)."
+  },
+  {
+   "type": "h",
+   "level": 4,
+   "text": "2.6 Integrations"
+  },
+  {
+   "type": "p",
+   "text": "If a seller connects third-party tools (for example, Cal.com for scheduling or Google Calendar where offered), relevant booking or calendar data may be shared between PingMyBio and that provider under the seller’s configuration and the provider’s own privacy policy. Google Calendar is covered in detail in Google user data below."
+  },
+  {
+   "type": "h",
+   "level": 4,
+   "text": "2.7 Google user data (Google Calendar)"
+  },
+  {
+   "type": "p",
+   "text": "Sellers can connect their Google Calendar so buyers can book calls directly onto it. This is optional and only happens when a seller clicks Connect Google Calendar and approves Google’s consent screen."
+  },
+  {
+   "type": "p",
+   "text": "What we access. With the seller’s permission we use the Google Calendar API to:"
+  },
+  {
+   "type": "li",
+   "text": "Read free/busy times on the seller’s primary calendar for the next 30 days, so buyers only see times the seller is free. We see only busy time ranges — not the titles, descriptions, attendees, or other details of the seller’s events."
+  },
+  {
+   "type": "li",
+   "text": "Read the calendar’s email address, to show the seller which calendar is connected and to send them booking notifications."
+  },
+  {
+   "type": "li",
+   "text": "Create an event when a buyer books a call — containing the offer name, the buyer’s name, email, phone (if provided), and any booking notes, with the buyer added as a guest and, for video calls, a Google Meet link."
+  },
+  {
+   "type": "li",
+   "text": "Update that event when the seller or buyer reschedules, and delete that event when either cancels. We only change or delete events that PingMyBio created."
+  },
+  {
+   "type": "p",
+   "text": "What we store. OAuth access and refresh tokens (stored server-side and never exposed to browsers), the connected calendar’s email address, and the IDs and times of events PingMyBio created. Free/busy results are used to calculate available times when a buyer views the booking page and are not stored."
+  },
+  {
+   "type": "p",
+   "text": "How we use and share it. Google user data is used only to provide the booking feature described above. We do not sell it, use it for advertising, use it to train AI or machine-learning models, or let humans read it except with the seller’s consent, for security or abuse investigations, or where required by law. We share it only as needed to run the booking (for example, the buyer receives the event invite and Meet link) and with service providers that host our infrastructure."
+  },
+  {
+   "type": "p",
+   "text": "Limited Use. PingMyBio’s use and transfer to any other app of information received from Google APIs will adhere to the Google API Services User Data Policy, including the Limited Use requirements."
+  },
+  {
+   "type": "p",
+   "text": "Disconnecting and deletion. A seller can click Disconnect on the Booking tab at any time. This revokes PingMyBio’s access with Google and deletes the stored tokens and connected email from our systems. Sellers can also remove access at myaccount.google.com/permissions. Events already on the seller’s calendar remain theirs to keep or delete. To request deletion of any other Google-related data, contact info@pingmybio.com."
+  },
+  {
+   "type": "h",
+   "level": 4,
+   "text": "2.8 Communications"
+  },
+  {
+   "type": "p",
+   "text": "If you contact us, join a waitlist, or receive transactional emails (for example, account or order updates), we process the content of those communications and your contact details."
+  },
+  {
+   "type": "h",
+   "level": 3,
+   "text": "3. How we use information"
+  },
+  {
+   "type": "p",
+   "text": "We use information to:"
+  },
+  {
+   "type": "li",
+   "text": "Provide, operate, secure, and improve the Service"
+  },
+  {
+   "type": "li",
+   "text": "Authenticate users and protect accounts"
+  },
+  {
+   "type": "li",
+   "text": "Host and display storefronts (Classic and AI)"
+  },
+  {
+   "type": "li",
+   "text": "Process seller subscriptions, orders, bookings, and delivery flows"
+  },
+  {
+   "type": "li",
+   "text": "Send service-related messages (and marketing only where allowed and with an opt-out)"
+  },
+  {
+   "type": "li",
+   "text": "Analyze usage to debug, prevent abuse, and improve product quality"
+  },
+  {
+   "type": "li",
+   "text": "Comply with law and enforce our Terms of Service"
+  },
+  {
+   "type": "p",
+   "text": "We do not sell your personal information."
+  },
+  {
+   "type": "h",
+   "level": 3,
+   "text": "4. Cookies and similar technologies"
+  },
+  {
+   "type": "p",
+   "text": "PingMyBio uses cookies and similar technologies for:"
+  },
+  {
+   "type": "li",
+   "text": "Authentication — keeping you signed in"
+  },
+  {
+   "type": "li",
+   "text": "Security and fraud prevention"
+  },
+  {
+   "type": "li",
+   "text": "Preferences — for example, remembering a recently visited storefront where applicable"
+  },
+  {
+   "type": "li",
+   "text": "Session functionality — cart, checkout, and chat sessions"
+  },
+  {
+   "type": "li",
+   "text": "Analytics / performance — understanding how the Service is used"
+  },
+  {
+   "type": "p",
+   "text": "You can control cookies in your browser. Blocking some cookies may break sign-in, checkout, or other features."
+  },
+  {
+   "type": "h",
+   "level": 3,
+   "text": "5. How we share information"
+  },
+  {
+   "type": "p",
+   "text": "We may share information with:"
+  },
+  {
+   "type": "li",
+   "text": "Service providers that help us run PingMyBio, such as hosting (Vercel), database/auth storage (Supabase), payments (Stripe), email delivery, analytics/performance tooling, and similar vendors who process data on our behalf under appropriate agreements where required"
+  },
+  {
+   "type": "li",
+   "text": "Sellers, when you buy from or interact with their store (order, contact, and relevant chat context needed to fulfill)"
+  },
+  {
+   "type": "li",
+   "text": "Integration partners chosen by sellers (for example, Cal.com or Google Calendar — see Google user data)"
+  },
+  {
+   "type": "li",
+   "text": "Sign-in providers you choose (for example, Google), according to that provider’s terms"
+  },
+  {
+   "type": "li",
+   "text": "Legal and safety recipients when required by law, to protect rights and safety, or to respond to valid legal process"
+  },
+  {
+   "type": "li",
+   "text": "Parties to a merger, acquisition, or asset transfer, with notice where required by law"
+  },
+  {
+   "type": "h",
+   "level": 3,
+   "text": "6. Roles: PingMyBio vs sellers"
+  },
+  {
+   "type": "p",
+   "text": "For data buyers submit to a seller’s store (orders, bookings, chat about that seller’s products), the seller often decides how to use that data to fulfill and support the purchase. PingMyBio provides the platform infrastructure. Sellers are responsible for their own privacy practices toward their customers where they are controllers of that customer relationship."
+  },
+  {
+   "type": "h",
+   "level": 3,
+   "text": "7. Data retention"
+  },
+  {
+   "type": "p",
+   "text": "We retain information as long as needed to provide the Service, maintain accounts, comply with legal obligations, resolve disputes, and enforce agreements. Sellers can update or delete much of their store content in the dashboard. You may request account deletion by contacting us (see Contact)."
+  },
+  {
+   "type": "h",
+   "level": 3,
+   "text": "8. Security"
+  },
+  {
+   "type": "p",
+   "text": "We use reasonable technical and organizational measures to protect information. No internet transmission or storage system is fully secure; we cannot guarantee absolute security."
+  },
+  {
+   "type": "h",
+   "level": 3,
+   "text": "9. Your rights and choices"
+  },
+  {
+   "type": "p",
+   "text": "Depending on where you live, you may have rights to access, correct, delete, or export personal information, or to object to or restrict certain processing. To exercise rights, contact us using the details below. We may verify your identity before responding."
+  },
+  {
+   "type": "p",
+   "text": "You may disconnect Google Sign-In from your Google account settings, and disconnect Google Calendar from the Booking tab of any call offer (see Google user data). You may opt out of non-essential marketing emails via unsubscribe links."
+  },
+  {
+   "type": "h",
+   "level": 3,
+   "text": "10. Children"
+  },
+  {
+   "type": "p",
+   "text": "PingMyBio is not directed to children under 13 (or the minimum age required in your jurisdiction). We do not knowingly collect personal information from children. If you believe a child has provided us information, contact us and we will take appropriate steps."
+  },
+  {
+   "type": "h",
+   "level": 3,
+   "text": "11. International processing"
+  },
+  {
+   "type": "p",
+   "text": "We may process and store information in the United States and other countries where we or our providers operate. By using the Service, you understand that information may be transferred to those locations subject to applicable law."
+  },
+  {
+   "type": "h",
+   "level": 3,
+   "text": "12. Changes"
+  },
+  {
+   "type": "p",
+   "text": "We may update this Privacy Policy. We will post the revised version at https://pingmybio.com/privacy and update the “Last updated” date. Continued use after changes means you accept the updated policy where permitted by law."
+  },
+  {
+   "type": "h",
+   "level": 3,
+   "text": "13. Contact"
+  },
+  {
+   "type": "p",
+   "text": "Privacy questions or data requests:"
+  },
+  {
+   "type": "li",
+   "text": "Website: https://pingmybio.com"
+  },
+  {
+   "type": "li",
+   "text": "Privacy Policy URL: https://pingmybio.com/privacy"
+  },
+  {
+   "type": "li",
+   "text": "Contact: email info@pingmybio.com"
+  },
+  {
+   "type": "p",
+   "text": "This policy describes how PingMyBio is intended to operate today. Have a qualified attorney review it for your business, jurisdiction, and compliance needs."
+  }
+ ]
+}

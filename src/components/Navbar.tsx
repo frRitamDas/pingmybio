@@ -1,55 +1,80 @@
-import { motion } from 'framer-motion';
-import { ArrowUpRight } from './Icons';
-import { SIGNUP_URL } from '../constants';
-
-const links = [
-  { label: 'Features', href: '#capabilities' },
-  { label: 'Pricing', href: '/pricing.html' },
-  { label: 'Blog', href: '/blog.html' },
-];
+import { useEffect, useState } from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
+import { NAV_LINKS, SIGNUP_URL } from '../data/site';
+import { Close, Menu } from './Icons';
 
 export default function Navbar() {
-  return (
-    <motion.header
-      initial={{ filter: 'blur(10px)', opacity: 0, y: -10 }}
-      animate={{ filter: 'blur(0px)', opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
-      className="fixed inset-x-0 top-4 z-50 flex items-center justify-between px-8 lg:px-16"
-    >
-      <a
-        href="/"
-        aria-label="PingMyBio home"
-        className="liquid-glass flex h-12 w-12 items-center justify-center rounded-full font-heading text-2xl italic"
-      >
-        p
-      </a>
+  const [open, setOpen] = useState(false);
+  const location = useLocation();
 
-      <nav className="liquid-glass hidden items-center gap-1 rounded-full px-1.5 py-1.5 md:flex" aria-label="Main">
-        {links.map((link) => (
+  // Close the mobile menu on route change
+  useEffect(() => setOpen(false), [location.pathname]);
+
+  return (
+    <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-md">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-8 py-6" aria-label="Main">
+        <Link to="/" className="font-display text-3xl tracking-tight text-ink" aria-label="PingMyBio home">
+          PingMyBio<sup className="ml-0.5 align-super text-[0.45em]">®</sup>
+        </Link>
+
+        <ul className="hidden items-center gap-8 md:flex">
+          {NAV_LINKS.map((link) => (
+            <li key={link.to}>
+              <NavLink
+                to={link.to}
+                end={link.to === '/'}
+                className={({ isActive }) =>
+                  `text-sm transition-colors ${isActive ? 'text-ink' : 'text-muted hover:text-ink'}`
+                }
+              >
+                {link.label}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+
+        <div className="flex items-center gap-3">
           <a
-            key={link.label}
-            href={link.href}
-            className="rounded-full px-3 py-2 font-body text-sm font-medium text-white/90 transition-colors hover:text-white"
+            href={SIGNUP_URL}
+            className="hidden rounded-full bg-ink px-6 py-2.5 text-sm font-medium text-white transition-transform hover:scale-[1.03] md:inline-block"
           >
-            {link.label}
+            Create My Page
           </a>
-        ))}
-        <a
-          href={SIGNUP_URL}
-          className="ml-1 flex items-center gap-1.5 rounded-full bg-white px-4 py-2 font-body text-sm font-medium text-black transition-transform hover:scale-[1.02]"
-        >
-          Create My Page
-          <ArrowUpRight />
-        </a>
+          <button
+            type="button"
+            className="flex h-10 w-10 items-center justify-center rounded-full text-ink md:hidden"
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? <Close /> : <Menu />}
+          </button>
+        </div>
       </nav>
 
-      <a
-        href={SIGNUP_URL}
-        className="rounded-full bg-white px-4 py-2 font-body text-sm font-medium text-black md:hidden"
-      >
-        Create My Page
-      </a>
-      <div className="hidden h-12 w-12 md:block" aria-hidden="true" />
-    </motion.header>
+      {open && (
+        <div className="border-t border-black/5 bg-background px-8 pb-8 pt-4 md:hidden">
+          <ul className="flex flex-col gap-5">
+            {NAV_LINKS.map((link) => (
+              <li key={link.to}>
+                <NavLink
+                  to={link.to}
+                  end={link.to === '/'}
+                  className={({ isActive }) => `text-base ${isActive ? 'text-ink' : 'text-muted'}`}
+                >
+                  {link.label}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+          <a
+            href={SIGNUP_URL}
+            className="mt-8 inline-block rounded-full bg-ink px-6 py-3 text-sm font-medium text-white"
+          >
+            Create My Page
+          </a>
+        </div>
+      )}
+    </header>
   );
 }
