@@ -949,6 +949,11 @@ button {
   margin-top: auto;
 }
 
+.story-avatar svg {
+  width: 15px;
+  height: 15px;
+}
+
 .story-avatar {
   width: 34px;
   height: 34px;
