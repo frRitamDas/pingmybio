@@ -7,12 +7,13 @@
 html,
 body {
   background: #ffffff;
-  color: #000000;
+  color: #0b0b0b;
   font-family: 'Inter', system-ui, sans-serif;
+  --font-display: 'Geist', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background: #000000;
+  background: #0b0b0b;
   color: #ffffff;
 }

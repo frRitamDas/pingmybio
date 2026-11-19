@@ -26,7 +26,7 @@ export default function Hero() {
       >
         <h1 className="animate-fade-rise max-w-7xl font-display text-5xl font-normal text-ink sm:text-7xl md:text-8xl" style={{ lineHeight: 0.95, letterSpacing: '-2.46px' }}>
           Turn your bio into an{' '}
-          <em className="italic text-muted">AI-powered storefront.</em>
+          <em className="not-italic text-muted">AI-powered storefront.</em>
         </h1>
 
         <p className="animate-fade-rise-delay mt-8 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
