@@ -3,6 +3,8 @@ import type { ReactNode } from "react";
 import { ChevronRight, ArrowLeft, ArrowUpRight } from "lucide-react";
 import type { POSTS } from "@/lib/site";
 import { SITE } from "@/lib/site";
+import { BandScene } from "@/components/three/band-scene";
+import { TiltCard } from "@/components/three/tilt-card";
 
 type Post = (typeof POSTS)[number];
 
@@ -73,8 +75,10 @@ export function ArticleShell({
           </div>
 
           {/* conversion card */}
-          <div className="relative mt-6 overflow-hidden rounded-3xl bg-ink p-8 text-center text-ink-foreground sm:p-10">
-            <div className="dot-grid pointer-events-none absolute inset-0" aria-hidden="true" />
+          <TiltCard max={5} className="mt-6 rounded-3xl">
+            <div className="relative h-full overflow-hidden rounded-3xl bg-ink p-8 text-center text-ink-foreground sm:p-10">
+              <div className="dot-grid pointer-events-none absolute inset-0" aria-hidden="true" />
+              <BandScene variant="orb" align="center" sparkles={18} className="opacity-50" />
             <div className="relative">
               <p className="font-mono text-[0.58rem] uppercase tracking-[0.28em] text-ink-muted">
                 PingMyBio
@@ -94,7 +98,8 @@ export function ArticleShell({
                 />
               </Link>
             </div>
-          </div>
+            </div>
+          </TiltCard>
         </div>
       </article>
       <script

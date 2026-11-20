@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { BandScene } from "@/components/three/band-scene";
 
 export const metadata: Metadata = {
   title: "Off the record.",
@@ -15,6 +16,7 @@ export default function NotFound() {
         className="pointer-events-none absolute left-1/2 top-1/2 h-[36rem] w-[64rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.07),transparent_65%)]"
         aria-hidden="true"
       />
+      <BandScene variant="knot" align="center" className="opacity-60" sparkles={42} />
       <div className="relative mx-auto max-w-4xl px-5 pb-24 pt-28 text-center sm:px-8">
         <p className="font-mono text-[0.62rem] uppercase tracking-[0.3em] text-ink-muted">
           Error 404

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ChevronRight, ArrowUpRight, Sparkles } from "lucide-react";
 import { CTA } from "@/components/site/cta";
+import { BandScene } from "@/components/three/band-scene";
+import { TiltCard } from "@/components/three/tilt-card";
 import { POSTS, SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -18,6 +20,7 @@ export default function BlogIndexPage() {
       {/* ════════ HERO (band) ════════ */}
       <section className="relative overflow-hidden bg-ink text-ink-foreground">
         <div className="dot-grid pointer-events-none absolute inset-0" aria-hidden="true" />
+        <BandScene variant="knot" sparkles={52} />
         <div className="relative mx-auto max-w-6xl px-5 pb-16 pt-28 sm:px-8 sm:pb-20 sm:pt-32">
           <nav
             aria-label="Breadcrumb"
@@ -79,7 +82,8 @@ export default function BlogIndexPage() {
           </div>
 
           {/* The Ping callout */}
-          <div className="mt-12 flex flex-col items-start justify-between gap-6 rounded-3xl border border-border bg-secondary/40 p-8 sm:p-10 md:flex-row md:items-center">
+          <TiltCard max={4} className="mt-12 rounded-3xl border border-border bg-secondary/40">
+            <div className="flex flex-col items-start justify-between gap-6 p-8 sm:p-10 md:flex-row md:items-center">
             <div>
               <p className="flex items-center gap-2 font-mono text-[0.6rem] uppercase tracking-[0.28em] text-muted-foreground">
                 <Sparkles className="h-3.5 w-3.5" aria-hidden="true" /> The Ping
@@ -97,7 +101,8 @@ export default function BlogIndexPage() {
             <CTA href="/app" variant="solid">
               Create my page — free
             </CTA>
-          </div>
+            </div>
+          </TiltCard>
         </div>
       </section>
     </>

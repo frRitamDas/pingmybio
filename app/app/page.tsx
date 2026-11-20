@@ -17,6 +17,8 @@ import {
 import { LogoMark } from "@/components/site/logo";
 import { CTA } from "@/components/site/cta";
 import { ProgressRing } from "@/components/app-preview/progress-ring";
+import { BandScene } from "@/components/three/band-scene";
+import { TiltCard } from "@/components/three/tilt-card";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -69,6 +71,7 @@ export default function AppPreviewPage() {
       {/* ════════ HERO (band) ════════ */}
       <section className="relative overflow-hidden bg-ink text-ink-foreground">
         <div className="dot-grid pointer-events-none absolute inset-0" aria-hidden="true" />
+        <BandScene variant="orb" sparkles={52} />
         <div className="relative mx-auto max-w-6xl px-5 pb-14 pt-28 sm:px-8 sm:pt-32">
           <nav
             aria-label="Breadcrumb"
@@ -96,11 +99,12 @@ export default function AppPreviewPage() {
       {/* ════════ DASHBOARD MOCK ════════ */}
       <section className="bg-background">
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
-          <div
-            role="img"
-            aria-label="PingMyBio dashboard mock: sidebar navigation and a setup checklist with a progress ring showing 1 of 4 steps complete"
-            className="grid overflow-hidden rounded-3xl border border-border shadow-lift lg:grid-cols-[230px_1fr]"
-          >
+          <TiltCard max={3} className="rounded-3xl shadow-lift">
+            <div
+              role="img"
+              aria-label="PingMyBio dashboard mock: sidebar navigation and a setup checklist with a progress ring showing 1 of 4 steps complete"
+              className="grid overflow-hidden rounded-3xl border border-border lg:grid-cols-[230px_1fr]"
+            >
             {/* Sidebar */}
             <aside className="flex flex-row gap-1 overflow-x-auto bg-ink p-4 text-ink-foreground lg:flex-col lg:gap-0 lg:p-5">
               <div className="hidden items-center gap-2 px-2 pb-6 pt-1 lg:flex">
@@ -204,7 +208,8 @@ export default function AppPreviewPage() {
                 Live-look preview — full app ships with your invite
               </p>
             </div>
-          </div>
+            </div>
+          </TiltCard>
 
           {/* CTA */}
           <div className="mt-12 text-center">

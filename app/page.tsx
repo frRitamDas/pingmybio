@@ -14,6 +14,8 @@ import {
 import { CTA } from "@/components/site/cta";
 import { CountUp } from "@/components/site/count-up";
 import { FaqAccordion } from "@/components/site/faq-accordion";
+import { BandScene } from "@/components/three/band-scene";
+import { TiltCard } from "@/components/three/tilt-card";
 import { PhoneMock } from "@/components/home/phone-mock";
 import { LiveDemo } from "@/components/home/live-demo";
 import {
@@ -79,6 +81,7 @@ export default function HomePage() {
           className="pointer-events-none absolute -top-40 left-1/2 h-[34rem] w-[60rem] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.09),transparent_65%)]"
           aria-hidden="true"
         />
+        <BandScene variant="hero" sparkles={120} />
         {/* crosshair marks */}
         {[
           "left-[4%] top-[16%]",
@@ -198,7 +201,8 @@ export default function HomePage() {
 
           <div className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-12">
             {/* 01 — Assistant */}
-            <article className="flex flex-col rounded-3xl border border-hairline bg-background p-6 shadow-card transition-shadow duration-300 hover:shadow-lift md:col-span-7 md:p-8">
+            <TiltCard max={5} className="rounded-3xl md:col-span-7">
+              <article className="flex h-full flex-col rounded-3xl border border-hairline bg-background p-6 shadow-card md:p-8">
               <p className="font-mono text-[0.58rem] uppercase tracking-[0.28em] text-muted-foreground">
                 01 — Assistant <span className="text-foreground/60">· Always on</span>
               </p>
@@ -222,9 +226,11 @@ export default function HomePage() {
                 page; a stand-in that sounds like you.
               </p>
             </article>
+            </TiltCard>
 
             {/* 02 — Offers */}
-            <article className="flex flex-col rounded-3xl border border-hairline bg-secondary/50 p-6 md:col-span-5 md:p-8">
+            <TiltCard max={5} className="rounded-3xl md:col-span-5">
+              <article className="flex h-full flex-col rounded-3xl border border-hairline bg-secondary/50 p-6 md:p-8">
               <p className="font-mono text-[0.58rem] uppercase tracking-[0.28em] text-muted-foreground">
                 02 — Offers <span className="text-foreground/60">· Convert</span>
               </p>
@@ -256,9 +262,11 @@ export default function HomePage() {
                 right next step without a maze of tabs.
               </p>
             </article>
+            </TiltCard>
 
             {/* 03 — Work with me */}
-            <article className="flex flex-col rounded-3xl bg-ink p-6 text-ink-foreground md:col-span-5 md:p-8">
+            <TiltCard max={5} className="rounded-3xl md:col-span-5">
+              <article className="flex h-full flex-col rounded-3xl bg-ink p-6 text-ink-foreground md:p-8">
               <p className="font-mono text-[0.58rem] uppercase tracking-[0.28em] text-ink-muted">
                 03 — Work with me <span className="text-white/50">· For brands</span>
               </p>
@@ -290,9 +298,11 @@ export default function HomePage() {
                 research and a reply brief waiting in your Inbox.
               </p>
             </article>
+            </TiltCard>
 
             {/* 04 — Knowledge + Inbox */}
-            <article className="flex flex-col rounded-3xl border border-hairline bg-background p-6 shadow-card md:col-span-7 md:p-8">
+            <TiltCard max={5} className="rounded-3xl md:col-span-7">
+              <article className="flex h-full flex-col rounded-3xl border border-hairline bg-background p-6 shadow-card md:p-8">
               <p className="font-mono text-[0.58rem] uppercase tracking-[0.28em] text-muted-foreground">
                 04 — Knowledge + Inbox <span className="text-foreground/60">· One place</span>
               </p>
@@ -329,6 +339,7 @@ export default function HomePage() {
                 calm inbox.
               </p>
             </article>
+            </TiltCard>
           </div>
         </div>
       </section>
@@ -467,10 +478,8 @@ export default function HomePage() {
           </div>
           <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {TESTIMONIALS.map((t) => (
-              <figure
-                key={t.name}
-                className="flex flex-col rounded-3xl border border-hairline bg-card p-6 shadow-card"
-              >
+              <TiltCard key={t.name} max={6}>
+                <figure className="flex h-full flex-col rounded-3xl border border-hairline bg-card p-6 shadow-card">
                 <Stars className="text-foreground" />
                 <blockquote className="mt-4 flex-1 leading-relaxed text-foreground/90">
                   “{t.quote}”
@@ -484,7 +493,8 @@ export default function HomePage() {
                     <small className="block text-xs text-muted-foreground">{t.role}</small>
                   </span>
                 </figcaption>
-              </figure>
+                </figure>
+              </TiltCard>
             ))}
           </div>
         </div>
@@ -568,6 +578,7 @@ export default function HomePage() {
       {/* ════════ FINAL CTA ════════ */}
       <section className="relative overflow-hidden bg-ink text-ink-foreground">
         <div className="dot-grid pointer-events-none absolute inset-0" aria-hidden="true" />
+        <BandScene variant="knot" align="center" className="opacity-45" sparkles={36} />
         {/* orbit badges */}
         {[
           { text: "CLAIM YOUR LINK · FREE TO START · NO WAITLIST · ", pos: "left-[6%] top-10", reverse: false },

@@ -12,6 +12,7 @@ import {
 import { Pricing } from "@/components/ui/pricing";
 import { FaqAccordion } from "@/components/site/faq-accordion";
 import { CTA } from "@/components/site/cta";
+import { BandScene } from "@/components/three/band-scene";
 import { PLANS, FAQS_PRICING, SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -79,6 +80,7 @@ export default function PricingPage() {
       {/* ════════ HERO (band) ════════ */}
       <section className="relative overflow-hidden bg-ink text-ink-foreground">
         <div className="dot-grid pointer-events-none absolute inset-0" aria-hidden="true" />
+        <BandScene variant="knot" sparkles={56} />
         <div className="relative mx-auto max-w-6xl px-5 pb-16 pt-28 sm:px-8 sm:pb-20 sm:pt-32">
           <nav
             aria-label="Breadcrumb"
@@ -229,8 +231,9 @@ export default function PricingPage() {
       </section>
 
       {/* ════════ FINAL CTA ════════ */}
-      <section className="border-t border-white/5 bg-ink text-ink-foreground">
-        <div className="mx-auto max-w-4xl px-5 py-20 text-center sm:px-8 sm:py-24">
+      <section className="relative overflow-hidden border-t border-white/5 bg-ink text-ink-foreground">
+        <BandScene variant="orb" align="center" className="opacity-55" sparkles={30} />
+        <div className="relative mx-auto max-w-4xl px-5 py-20 text-center sm:px-8 sm:py-24">
           <h2 className="text-4xl font-semibold leading-[1.02] tracking-[-0.035em] sm:text-6xl">
             Free to start.
             <br />

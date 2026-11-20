@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { ChevronRight } from "lucide-react";
+import { BandScene } from "@/components/three/band-scene";
 
 export function LegalShell({
   crumb,
@@ -20,6 +21,7 @@ export function LegalShell({
       {/* slim dark masthead */}
       <div className="relative overflow-hidden bg-ink text-ink-foreground">
         <div className="dot-grid pointer-events-none absolute inset-0" aria-hidden="true" />
+        <BandScene variant="orb" sparkles={28} className="opacity-75" />
         <div className="relative mx-auto max-w-6xl px-5 pb-14 pt-28 sm:px-8 sm:pt-32">
           <nav
             aria-label="Breadcrumb"
