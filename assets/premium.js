@@ -258,3 +258,137 @@
     }
   }
 })();
+
+/* ============================================================
+   PRO MAX — parallax, back-to-top, live demo, active nav
+   ============================================================ */
+(function () {
+  "use strict";
+  var mm = typeof window.matchMedia === "function" ? window.matchMedia.bind(window) : null;
+  var prefersReduced = mm ? mm("(prefers-reduced-motion: reduce)").matches : false;
+  var finePointer = mm ? mm("(pointer: fine)").matches : true;
+
+  /* ---------- Active nav link ---------- */
+  var path = (location.pathname || "/").replace(/index\.html$/, "").replace(/\/$/, "");
+  document.querySelectorAll(".nav__link").forEach(function (a) {
+    var href = (a.getAttribute("href") || "").split("#")[0].replace(/index\.html$/, "").replace(/\/$/, "");
+    if (href && path.endsWith(href)) a.setAttribute("aria-current", "page");
+    else if (href === "" && (path === "" || path === "/")) a.setAttribute("aria-current", "page");
+  });
+
+  /* ---------- Back to top ---------- */
+  var toTop = document.querySelector(".to-top");
+  if (toTop) {
+    var toggleTop = function () { toTop.classList.toggle("is-visible", (window.scrollY || 0) > 480); };
+    document.addEventListener("scroll", toggleTop, { passive: true });
+    toggleTop();
+    toTop.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: prefersReduced ? "auto" : "smooth" });
+    });
+  }
+
+  /* ---------- Hero mouse parallax (phone + badge) ---------- */
+  var hero = document.querySelector(".hero");
+  var phone = document.querySelector(".phone");
+  var badge = document.querySelector(".hero__badge");
+  if (hero && phone && finePointer && !prefersReduced) {
+    var px = 0, py = 0, tx = 0, ty = 0, raf = null;
+    function apply() {
+      px += (tx - px) * 0.08; py += (ty - py) * 0.08;
+      phone.style.translate = "translate(" + (px * 14) + "px," + (py * 10) + "px)";
+      if (badge) badge.style.translate = "translate(" + (px * -22) + "px," + (py * -16) + "px)";
+      if (Math.abs(tx - px) > 0.001 || Math.abs(ty - py) > 0.001) raf = requestAnimationFrame(apply); else raf = null;
+    }
+    hero.addEventListener("mousemove", function (e) {
+      var r = hero.getBoundingClientRect();
+      tx = ((e.clientX - r.left) / r.width - 0.5) * 2;
+      ty = ((e.clientY - r.top) / r.height - 0.5) * 2;
+      if (!raf) raf = requestAnimationFrame(apply);
+    });
+    hero.addEventListener("mouseleave", function () { tx = 0; ty = 0; if (!raf) raf = requestAnimationFrame(apply); });
+  }
+
+  /* ---------- Live demo: ask Maya's assistant ---------- */
+  var demo = document.getElementById("liveDemo");
+  if (demo) {
+    var messages = demo.querySelector(".demo-messages");
+    var input = demo.querySelector(".demo-inputrow input");
+    var form = demo.querySelector(".demo-inputrow");
+    var chips = demo.querySelectorAll(".demo-chip");
+    var reset = demo.querySelector(".demo-reset");
+    var KB = [
+      { keys: ["coach", "1:1", "one on one", "how much", "price", "cost"], reply: "4 weeks · $240 — Voxer access plus a weekly teardown of your page. Two slots left this month. Want the booking link?", offer: true },
+      { keys: ["brand", "collab", "sponsor", "partner", "work with"], reply: "Yes — tap 'Work with me' on the page, drop your brief and budget. She replies within 48h with a scope. Fair warning: she says no a lot, and brands respect it." },
+      { keys: ["free", "preset", "freebie", "download", "lead magnet"], reply: "The Lightroom preset pack is free. Tell me your email and it's yours — takes ten seconds." },
+      { keys: ["newsletter", "substack", "ping"], reply: "The Ping goes out monthly to 12,400 creators — no fluff, just what's converting. It's the second offer on the page." },
+      { keys: ["refund", "guarantee"], reply: "7-day happiness guarantee. If the first teardown week isn't it, she refunds with zero emails." },
+      { keys: ["where", "based", "location"], reply: "Maya is based in Lisbon, works with creators worldwide, and replies fastest between 8–11am CET." }
+    ];
+    var FALLBACK = "Good question — the short answer: Maya covers that in her Knowledge. Try asking about coaching, brand collabs, the freebie, or refunds.";
+    var typingEl = null;
+
+    function addBubble(text, who, offer) {
+      var div = document.createElement("div");
+      div.className = "bubble " + (who === "fan" ? "bubble--fan" : "bubble--ai") + " is-in";
+      div.textContent = text;
+      messages.appendChild(div);
+      if (offer) {
+        var card = document.createElement("div");
+        card.className = "bubble bubble--offer is-in";
+        card.innerHTML = '<b>1:1 Creator Coaching</b><small>4 weeks · $240</small><span class="offer-btn">Book your slot →</span>';
+        messages.appendChild(card);
+      }
+      messages.scrollTop = messages.scrollHeight;
+      return div;
+    }
+    function showTyping() {
+      typingEl = document.createElement("div");
+      typingEl.className = "typing is-in";
+      typingEl.innerHTML = "<i></i><i></i><i></i>";
+      messages.appendChild(typingEl);
+      messages.scrollTop = messages.scrollHeight;
+    }
+    function hideTyping() { if (typingEl && typingEl.parentNode) typingEl.parentNode.removeChild(typingEl); typingEl = null; }
+    function answer(query) {
+      var q = query.toLowerCase();
+      var hit = null;
+      for (var i = 0; i < KB.length; i++) {
+        for (var j = 0; j < KB[i].keys.length; j++) {
+          if (q.indexOf(KB[i].keys[j]) !== -1) { hit = KB[i]; break; }
+        }
+        if (hit) break;
+      }
+      showTyping();
+      var think = prefersReduced ? 60 : 750 + Math.random() * 750;
+      setTimeout(function () {
+        hideTyping();
+        addBubble(hit ? hit.reply : FALLBACK, "ai", !!(hit && hit.offer));
+      }, think);
+    }
+    function send(text) {
+      var q = (text || "").trim();
+      if (!q) return;
+      addBubble(q, "fan", false);
+      answer(q);
+    }
+    chips.forEach(function (chip) {
+      chip.addEventListener("click", function () { send(chip.getAttribute("data-q") || chip.textContent); });
+    });
+    if (form && input) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        send(input.value);
+        input.value = "";
+        input.focus();
+      });
+    }
+    if (reset) {
+      reset.addEventListener("click", function () {
+        messages.innerHTML = '';
+        addBubble("hey! how much is the 1:1 coaching?", "fan", false);
+        answer("coaching");
+      });
+    }
+    messages.scrollTop = messages.scrollHeight;
+  }
+})();

@@ -15,6 +15,10 @@
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0d0d0d">
+<meta property="og:image:alt" content="PingMyBio — sonar ping arcs on black">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"PingMyBio","applicationCategory":"BusinessApplication","operatingSystem":"Web","description":"AI-powered link-in-bio that answers followers, recommends offers, and helps you sell 24/7.","offers":{"@type":"AggregateOffer","lowPrice":"0","highPrice":"29","priceCurrency":"USD"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"2300"}}
+</script>
 <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,6 +26,7 @@
 <link rel="stylesheet" href="./assets/premium.css">
 </head>
 <body class="theme-dark">
+<a class="skip-link" href="#main">Skip to content</a>
 
 <div class="grain" aria-hidden="true"></div>
 <div class="scroll-progress" aria-hidden="true"><span></span></div>
@@ -79,7 +84,7 @@
   <a class="mmenu__link" href="app_profile.html"><em style="font-style:italic">Create my page →</em></a>
 </div>
 
-<main>
+<main id="main">
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
@@ -127,6 +132,13 @@
 
     <!-- Phone mock with self-playing chat -->
     <div class="hero__visual" aria-hidden="true">
+      <svg class="hero__rings" viewBox="0 0 520 520" aria-hidden="true">
+        <circle class="ring ring--1" cx="260" cy="238" r="96"/>
+        <circle class="ring ring--2" cx="260" cy="238" r="96"/>
+        <circle class="ring ring--3" cx="260" cy="238" r="96"/>
+        <circle class="ring ring--dash" cx="260" cy="238" r="152"/>
+        <circle class="ring" cx="260" cy="238" r="46" stroke-opacity=".55"/>
+      </svg>
       <svg class="orbit-badge hero__badge spin-host" viewBox="0 0 120 120" role="img" aria-label="Your bio, now intelligent — PingMyBio">
         <g class="spin">
           <defs><path id="circlePath" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs>
@@ -185,6 +197,7 @@
       </div>
     </div>
   </div>
+  <a class="scroll-cue" href="#features" aria-label="Scroll to features"><span>Scroll</span><span class="scroll-cue__line"><span class="scroll-cue__dot"></span></span></a>
 </section>
 
 <!-- ============ MARQUEE ============ -->
@@ -311,6 +324,46 @@
         <p class="step__meta">Checkout · Calendar · Inbox</p>
       </li>
     </ol>
+  </div>
+</section>
+
+
+<!-- ============ LIVE DEMO ============ -->
+<section class="section section--ink" id="demo" aria-labelledby="demo-title">
+  <div class="container">
+    <div class="demo-wrap">
+      <div>
+        <p class="eyebrow reveal"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M10 9.5v5l4-2.5-4-2.5z" fill="currentColor" stroke="none"/></svg> Live demo — try it</p>
+        <h2 class="section-title reveal" id="demo-title" style="--d:.08s">Don't take<br>our word.<br><em class="it">Ask it.</em></h2>
+        <p class="reveal" style="--d:.16s; margin-top:1.2rem; color:var(--grey-inv); max-width:44ch">This is Maya's page, running right now. She's a creator coach — her assistant answers from her actual knowledge: pricing, collabs, the freebie. Same brain your page would have.</p>
+        <ul class="demo-points reveal" style="--d:.24s">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#faf9f7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Grounded in the creator's real FAQs and offers — never invents prices</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#faf9f7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Routes high-intent fans straight to the booking link</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#faf9f7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Hands brand briefs to Inbox with research attached</li>
+        </ul>
+        <p class="reveal" style="--d:.3s; margin-top:1.6rem; font-family:var(--mono); font-size:.58rem; letter-spacing:.22em; text-transform:uppercase; color:var(--grey-inv)">Try: “how much is coaching?”</p>
+      </div>
+
+      <div class="demo-card reveal" id="liveDemo" style="--d:.15s">
+        <div class="demo-head"><span class="demo-dot"></span>Maya's Assistant<span>Online — replies in seconds</span></div>
+        <div class="demo-messages" aria-live="polite">
+          <div class="bubble bubble--fan is-in">hey! how much is the 1:1 coaching?</div>
+          <div class="bubble bubble--ai is-in">4 weeks · $240 — Voxer access plus a weekly teardown of your page. Two slots left this month. Want the booking link?</div>
+          <div class="bubble bubble--offer is-in"><b>1:1 Creator Coaching</b><small>4 weeks · $240</small><span class="offer-btn">Book your slot →</span></div>
+        </div>
+        <div class="demo-chips" aria-label="Suggested questions">
+          <button class="demo-chip" data-q="how much is coaching?">How much is coaching?</button>
+          <button class="demo-chip" data-q="do you work with brands?">Do you work with brands?</button>
+          <button class="demo-chip" data-q="what's the freebie?">What's the freebie?</button>
+          <button class="demo-chip" data-q="what's the refund policy?">Refund policy?</button>
+        </div>
+        <form class="demo-inputrow">
+          <input type="text" maxlength="140" placeholder="Ask my assistant anything…" aria-label="Ask Maya's assistant" autocomplete="off">
+          <button class="demo-send" type="submit" aria-label="Send"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 11.5 21 3l-6.5 18-2.3-7.7L3 11.5z"/></svg></button>
+        </form>
+        <button class="demo-reset" type="button">Reset demo</button>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -488,6 +541,7 @@
   <div class="footer__giant" aria-hidden="true"><span>PINGMYBIO</span></div>
 </footer>
 
+<button class="to-top" aria-label="Back to top"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
 <script src="./assets/premium.js" defer></script>
 <script>
 /* Marquee content (duplicated for seamless loop) */
