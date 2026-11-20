@@ -5,6 +5,7 @@ import type { POSTS } from "@/lib/site";
 import { SITE } from "@/lib/site";
 import { BandScene } from "@/components/three/band-scene";
 import { TiltCard } from "@/components/three/tilt-card";
+import { Reveal } from "@/components/fx/reveal";
 
 type Post = (typeof POSTS)[number];
 
@@ -36,6 +37,7 @@ export function ArticleShell({
     <>
       <article className="bg-background">
         <div className="mx-auto max-w-3xl px-5 pb-16 pt-28 sm:px-8 sm:pt-32">
+          <Reveal y={30}>
           <nav
             aria-label="Breadcrumb"
             className="flex flex-wrap items-center gap-2 font-mono text-[0.6rem] uppercase tracking-[0.25em] text-muted-foreground"
@@ -59,6 +61,7 @@ export function ArticleShell({
           <h1 className="mt-4 text-4xl font-semibold leading-[1.02] tracking-[-0.035em] sm:text-5xl">
             {post.title}
           </h1>
+          </Reveal>
 
           <div className="article mt-10 border-t border-hairline pt-10">
             {children}

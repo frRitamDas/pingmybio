@@ -13,6 +13,8 @@ import { Pricing } from "@/components/ui/pricing";
 import { FaqAccordion } from "@/components/site/faq-accordion";
 import { CTA } from "@/components/site/cta";
 import { BandScene } from "@/components/three/band-scene";
+import { Reveal } from "@/components/fx/reveal";
+import { Watermark } from "@/components/fx/watermark";
 import { PLANS, FAQS_PRICING, SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -121,6 +123,7 @@ export default function PricingPage() {
 
       {/* ════════ 0% FEES STRIP ════════ */}
       <section className="border-b border-hairline bg-secondary/40" aria-label="What we never charge">
+        <Reveal y={22}>
         <div className="mx-auto grid max-w-6xl divide-y divide-hairline px-5 sm:px-8 md:grid-cols-3 md:divide-x md:divide-y-0">
           {[
             {
@@ -152,11 +155,14 @@ export default function PricingPage() {
             </div>
           ))}
         </div>
+        </Reveal>
       </section>
 
       {/* ════════ COMPARISON TABLE ════════ */}
-      <section className="bg-background">
-        <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
+      <section className="relative overflow-hidden bg-background">
+        <Watermark text="EVERY PLAN" className="top-4 right-[-2%]" />
+        <div className="relative z-[1] mx-auto max-w-6xl px-5 py-20 sm:px-8">
+          <Reveal>
           <p className="flex items-center gap-2 font-mono text-[0.62rem] uppercase tracking-[0.28em] text-muted-foreground">
             <Sparkles className="h-3.5 w-3.5" aria-hidden="true" /> Side by side
           </p>
@@ -165,6 +171,8 @@ export default function PricingPage() {
             <br />
             <span className="italic text-muted-foreground">line by line.</span>
           </h2>
+          </Reveal>
+          <Reveal y={26} delay={0.06}>
           <div className="mt-10 overflow-x-auto rounded-2xl border border-border shadow-card">
             <table className="w-full min-w-[640px] border-collapse text-sm">
               <thead>
@@ -206,6 +214,7 @@ export default function PricingPage() {
               </tbody>
             </table>
           </div>
+          </Reveal>
         </div>
       </section>
 
@@ -225,7 +234,9 @@ export default function PricingPage() {
             </div>
           </div>
           <div className="lg:col-span-8">
-            <FaqAccordion items={FAQS_PRICING} />
+            <Reveal delay={0.08}>
+              <FaqAccordion items={FAQS_PRICING} />
+            </Reveal>
           </div>
         </div>
       </section>
@@ -234,6 +245,7 @@ export default function PricingPage() {
       <section className="relative overflow-hidden border-t border-white/5 bg-ink text-ink-foreground">
         <BandScene variant="orb" align="center" className="opacity-55" sparkles={30} />
         <div className="relative mx-auto max-w-4xl px-5 py-20 text-center sm:px-8 sm:py-24">
+          <Reveal y={40}>
           <h2 className="text-4xl font-semibold leading-[1.02] tracking-[-0.035em] sm:text-6xl">
             Free to start.
             <br />
@@ -247,6 +259,7 @@ export default function PricingPage() {
           <p className="mt-5 font-mono text-[0.58rem] uppercase tracking-[0.28em] text-ink-muted">
             Free to start · 300 AI replies/mo · No waitlist
           </p>
+          </Reveal>
         </div>
       </section>
 

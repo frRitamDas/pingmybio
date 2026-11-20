@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { BandScene } from "@/components/three/band-scene";
+import { Reveal } from "@/components/fx/reveal";
 
 export const metadata: Metadata = {
   title: "Off the record.",
@@ -17,6 +18,7 @@ export default function NotFound() {
         aria-hidden="true"
       />
       <BandScene variant="knot" align="center" className="opacity-60" sparkles={42} />
+      <Reveal y={44}>
       <div className="relative mx-auto max-w-4xl px-5 pb-24 pt-28 text-center sm:px-8">
         <p className="font-mono text-[0.62rem] uppercase tracking-[0.3em] text-ink-muted">
           Error 404
@@ -45,6 +47,7 @@ export default function NotFound() {
           </Link>
         </div>
       </div>
+      </Reveal>
     </section>
   );
 }

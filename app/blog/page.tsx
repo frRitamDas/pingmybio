@@ -4,6 +4,8 @@ import { ChevronRight, ArrowUpRight, Sparkles } from "lucide-react";
 import { CTA } from "@/components/site/cta";
 import { BandScene } from "@/components/three/band-scene";
 import { TiltCard } from "@/components/three/tilt-card";
+import { Reveal } from "@/components/fx/reveal";
+import { Watermark } from "@/components/fx/watermark";
 import { POSTS, SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -47,11 +49,13 @@ export default function BlogIndexPage() {
       </section>
 
       {/* ════════ POST LIST ════════ */}
-      <section className="bg-background">
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+      <section className="relative overflow-hidden bg-background">
+        <Watermark text="PLAYBOOK" className="top-10 right-[-2%]" />
+        <div className="relative z-[1] mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
           <p className="font-mono text-[0.62rem] uppercase tracking-[0.3em] text-muted-foreground">
             Latest — September 2026
           </p>
+          <Reveal y={30}>
           <div className="mt-6 border-b border-hairline">
             {POSTS.map((post) => (
               <Link
@@ -80,6 +84,7 @@ export default function BlogIndexPage() {
               </Link>
             ))}
           </div>
+          </Reveal>
 
           {/* The Ping callout */}
           <TiltCard max={4} className="mt-12 rounded-3xl border border-border bg-secondary/40">

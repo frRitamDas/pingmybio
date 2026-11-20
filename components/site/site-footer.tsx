@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { LogoMark } from "@/components/site/logo";
 import { NewsletterForm } from "@/components/site/newsletter-form";
+import { Reveal } from "@/components/fx/reveal";
 
 const COLUMNS: { title: string; links: { label: string; href: string }[] }[] = [
   {
@@ -155,11 +156,13 @@ export function SiteFooter() {
         </div>
 
         {/* Giant wordmark */}
-        <div aria-hidden="true" className="select-none overflow-hidden pb-2">
-          <p className="whitespace-nowrap text-center text-[17.5vw] font-bold leading-[0.85] tracking-[-0.05em] text-foreground/[0.06] md:text-[13rem]">
-            PINGMYBIO
-          </p>
-        </div>
+        <Reveal y={90}>
+          <div aria-hidden="true" className="select-none overflow-hidden pb-2">
+            <p className="whitespace-nowrap text-center text-[17.5vw] font-bold leading-[0.85] tracking-[-0.05em] text-foreground/[0.06] md:text-[13rem]">
+              PINGMYBIO
+            </p>
+          </div>
+        </Reveal>
       </div>
     </footer>
   );

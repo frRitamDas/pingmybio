@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { LogoMark } from "@/components/site/logo";
 import { NAV_LINKS } from "@/lib/site";
+import { Magnetic } from "@/components/fx/magnetic";
 import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
@@ -84,16 +85,18 @@ export function SiteHeader() {
             >
               Sign in
             </Link>
-            <Link
-              href="/app"
-              className="group inline-flex h-9 items-center gap-1.5 rounded-full bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/85"
-            >
-              Create my page
-              <ArrowUpRight
-                className="h-3.5 w-3.5 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                aria-hidden="true"
-              />
-            </Link>
+            <Magnetic strength={0.28}>
+              <Link
+                href="/app"
+                className="group inline-flex h-9 items-center gap-1.5 rounded-full bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/85"
+              >
+                Create my page
+                <ArrowUpRight
+                  className="h-3.5 w-3.5 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  aria-hidden="true"
+                />
+              </Link>
+            </Magnetic>
           </div>
 
           <button

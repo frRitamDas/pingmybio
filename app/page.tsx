@@ -16,6 +16,11 @@ import { CountUp } from "@/components/site/count-up";
 import { FaqAccordion } from "@/components/site/faq-accordion";
 import { BandScene } from "@/components/three/band-scene";
 import { TiltCard } from "@/components/three/tilt-card";
+import { Parallax } from "@/components/fx/parallax";
+import { Magnetic } from "@/components/fx/magnetic";
+import { Reveal } from "@/components/fx/reveal";
+import { Watermark } from "@/components/fx/watermark";
+import { HeroContainer, HeroItem } from "@/components/home/hero-entrance";
 import { PhoneMock } from "@/components/home/phone-mock";
 import { LiveDemo } from "@/components/home/live-demo";
 import {
@@ -99,39 +104,53 @@ export default function HomePage() {
         ))}
 
         <div className="relative mx-auto grid max-w-6xl gap-12 px-5 pb-24 pt-28 sm:px-8 md:pt-32 lg:grid-cols-2 lg:items-center lg:gap-8 lg:pb-28">
-          <div>
-            <Eyebrow icon={Sparkles}>AI Link-in-Bio for Creators</Eyebrow>
-            <h1 className="mt-6 text-[clamp(3.4rem,10.5vw,6.75rem)] font-semibold leading-[0.96] tracking-[-0.045em]">
-              Your Bio,
-              <br />
-              <span className="bg-gradient-to-br from-white via-white to-[#6e6e74] bg-clip-text italic text-transparent">
-                Now Intelligent.
-              </span>
-            </h1>
-            <p className="mt-6 max-w-md text-lg leading-relaxed text-ink-muted">
-              Your AI-powered bio page answers followers, recommends your
-              services, and helps you sell around the clock — while you sleep,
-              shoot, or ship.
-            </p>
-            <div className="mt-9 flex flex-wrap items-center gap-5">
-              <CTA href="/app" variant="liquid" ariaLabel="Create my page — start free">
-                Create my page
-              </CTA>
-              <a
-                href="#how-it-works"
-                className="group inline-flex items-center gap-2 text-sm font-medium text-ink-foreground/80 underline decoration-white/25 underline-offset-8 transition-colors hover:text-white"
-              >
-                See how it works
-                <ArrowDown className="h-4 w-4 transition-transform duration-200 group-hover:translate-y-0.5" aria-hidden="true" />
-              </a>
-            </div>
-            <p className="mt-8 flex items-center gap-2.5 text-[0.8rem] text-ink-muted">
-              <Stars className="text-[#f5f5f7]" />
-              4.9/5 — Loved by 12,400+ creators
-            </p>
-          </div>
+          <Parallax distance={105} fade>
+            <HeroContainer>
+              <HeroItem>
+                <Eyebrow icon={Sparkles}>AI Link-in-Bio for Creators</Eyebrow>
+              </HeroItem>
+              <HeroItem>
+                <h1 className="mt-6 text-[clamp(3.4rem,10.5vw,6.75rem)] font-semibold leading-[0.96] tracking-[-0.045em]">
+                  Your Bio,
+                  <br />
+                  <span className="pmg-shimmer italic">Now Intelligent.</span>
+                </h1>
+              </HeroItem>
+              <HeroItem>
+                <p className="mt-6 max-w-md text-lg leading-relaxed text-ink-muted">
+                  Your AI-powered bio page answers followers, recommends your
+                  services, and helps you sell around the clock — while you sleep,
+                  shoot, or ship.
+                </p>
+              </HeroItem>
+              <HeroItem>
+                <div className="mt-9 flex flex-wrap items-center gap-5">
+                  <Magnetic strength={0.35}>
+                    <CTA href="/app" variant="liquid" ariaLabel="Create my page — start free">
+                      Create my page
+                    </CTA>
+                  </Magnetic>
+                  <a
+                    href="#how-it-works"
+                    className="group inline-flex items-center gap-2 text-sm font-medium text-ink-foreground/80 underline decoration-white/25 underline-offset-8 transition-colors hover:text-white"
+                  >
+                    See how it works
+                    <ArrowDown className="h-4 w-4 transition-transform duration-200 group-hover:translate-y-0.5" aria-hidden="true" />
+                  </a>
+                </div>
+              </HeroItem>
+              <HeroItem>
+                <p className="mt-8 flex items-center gap-2.5 text-[0.8rem] text-ink-muted">
+                  <Stars className="text-[#f5f5f7]" />
+                  4.9/5 — Loved by 12,400+ creators
+                </p>
+              </HeroItem>
+            </HeroContainer>
+          </Parallax>
 
-          <PhoneMock />
+          <Parallax distance={175}>
+            <PhoneMock />
+          </Parallax>
         </div>
 
         {/* scroll cue */}
@@ -180,9 +199,10 @@ export default function HomePage() {
       </section>
 
       {/* ════════ FEATURES BENTO ════════ */}
-      <section id="features" className="scroll-mt-24 bg-background">
-        <div className="mx-auto max-w-6xl px-5 pb-20 pt-6 sm:px-8">
-          <div className="flex flex-col justify-between gap-6 border-t border-hairline pt-16 md:flex-row md:items-end">
+      <section id="features" className="relative scroll-mt-24 overflow-hidden bg-background">
+        <Watermark text="ANSWERS" className="-bottom-10 left-[-2%]" />
+        <div className="relative z-[1] mx-auto max-w-6xl px-5 pb-20 pt-6 sm:px-8">
+          <Reveal className="flex flex-col justify-between gap-6 border-t border-hairline pt-16 md:flex-row md:items-end">
             <div>
               <Eyebrow icon={Clock3}>What you get</Eyebrow>
               <h2 className="mt-4 text-4xl font-semibold leading-[1.02] tracking-[-0.03em] sm:text-6xl">
@@ -197,7 +217,7 @@ export default function HomePage() {
               Assistant chat, linked offers, and Work with me — built for
               creators who sell, not just list.
             </p>
-          </div>
+          </Reveal>
 
           <div className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-12">
             {/* 01 — Assistant */}
@@ -347,7 +367,7 @@ export default function HomePage() {
       {/* ════════ HOW IT WORKS ════════ */}
       <section id="how-it-works" className="scroll-mt-24 border-t border-white/5 bg-ink text-ink-foreground">
         <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
-          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <Reveal className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <div>
               <Eyebrow icon={ArrowRight}>How it works</Eyebrow>
               <h2 className="mt-4 text-4xl font-semibold leading-[1.02] tracking-[-0.03em] sm:text-6xl">
@@ -359,8 +379,9 @@ export default function HomePage() {
             <p className="max-w-xs text-ink-muted">
               What actually happens after someone taps your link.
             </p>
-          </div>
+          </Reveal>
 
+          <Reveal y={30} delay={0.08}>
           <ol className="mt-12 grid gap-px overflow-hidden rounded-3xl border border-ink-border bg-ink-border md:grid-cols-3">
             {[
               {
@@ -396,13 +417,15 @@ export default function HomePage() {
               </li>
             ))}
           </ol>
+          </Reveal>
         </div>
       </section>
 
       {/* ════════ LIVE DEMO ════════ */}
-      <section id="demo" className="border-t border-white/5 bg-ink text-ink-foreground" aria-labelledby="demo-title">
-        <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 sm:px-8 lg:grid-cols-2">
-          <div>
+      <section id="demo" className="relative overflow-hidden border-t border-white/5 bg-ink text-ink-foreground" aria-labelledby="demo-title">
+        <Watermark text="ASK IT" className="bottom-2 right-[-1.5%]" />
+        <div className="relative z-[1] mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 sm:px-8 lg:grid-cols-2">
+          <Reveal>
             <Eyebrow icon={CirclePlay}>Live demo — try it</Eyebrow>
             <h2
               id="demo-title"
@@ -436,13 +459,14 @@ export default function HomePage() {
             <p className="mt-8 font-mono text-[0.6rem] uppercase tracking-[0.25em] text-ink-muted">
               Try: “how much is coaching?”
             </p>
-          </div>
+          </Reveal>
           <LiveDemo />
         </div>
       </section>
 
       {/* ════════ STATS ════════ */}
       <section className="border-y border-hairline bg-background" aria-label="PingMyBio in numbers">
+        <Reveal y={22}>
         <div className="mx-auto grid max-w-6xl grid-cols-2 divide-x divide-hairline md:grid-cols-4">
           {STATS.map((stat) => (
             <div key={stat.label} className="px-4 py-10 text-center sm:px-6">
@@ -457,6 +481,7 @@ export default function HomePage() {
             </div>
           ))}
         </div>
+        </Reveal>
       </section>
 
       {/* ════════ TESTIMONIALS ════════ */}
@@ -476,7 +501,7 @@ export default function HomePage() {
               PingMyBio.
             </p>
           </div>
-          <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <Reveal y={28} className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {TESTIMONIALS.map((t) => (
               <TiltCard key={t.name} max={6}>
                 <figure className="flex h-full flex-col rounded-3xl border border-hairline bg-card p-6 shadow-card">
@@ -496,13 +521,14 @@ export default function HomePage() {
                 </figure>
               </TiltCard>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* ════════ PRICING TEASER ════════ */}
       <section className="bg-background pb-20">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
+          <Reveal y={30}>
           <div className="grid overflow-hidden rounded-3xl border border-hairline lg:grid-cols-2">
             <div className="flex flex-col justify-center bg-ink p-8 text-ink-foreground sm:p-12">
               <p className="font-mono text-[0.6rem] uppercase tracking-[0.28em] text-ink-muted">
@@ -545,6 +571,7 @@ export default function HomePage() {
               ))}
             </div>
           </div>
+          </Reveal>
         </div>
       </section>
 
@@ -570,7 +597,9 @@ export default function HomePage() {
             </div>
           </div>
           <div className="lg:col-span-8">
-            <FaqAccordion items={FAQS_HOME} />
+            <Reveal delay={0.08}>
+              <FaqAccordion items={FAQS_HOME} />
+            </Reveal>
           </div>
         </div>
       </section>
@@ -600,6 +629,7 @@ export default function HomePage() {
             </text>
           </svg>
         ))}
+        <Reveal y={44}>
         <div className="relative mx-auto max-w-4xl px-5 py-24 text-center sm:px-8 sm:py-28">
           <Eyebrow icon={Sparkles}>Get started</Eyebrow>
           <h2 className="mt-6 text-5xl font-semibold leading-[0.98] tracking-[-0.04em] sm:text-7xl lg:text-8xl">
@@ -608,14 +638,17 @@ export default function HomePage() {
             <span className="italic text-white/80">Start closing today.</span>
           </h2>
           <div className="mt-10 flex justify-center">
-            <CTA href="/app" variant="liquid" ariaLabel="Create my page — it's free">
-              Create my page — it&rsquo;s free
-            </CTA>
+            <Magnetic strength={0.3}>
+              <CTA href="/app" variant="liquid" ariaLabel="Create my page — it's free">
+                Create my page — it&rsquo;s free
+              </CTA>
+            </Magnetic>
           </div>
           <p className="mt-6 font-mono text-[0.6rem] uppercase tracking-[0.28em] text-ink-muted">
             Free to start · 300 AI replies/mo · No waitlist
           </p>
         </div>
+        </Reveal>
       </section>
 
       <script

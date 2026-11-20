@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { ChevronRight } from "lucide-react";
 import { BandScene } from "@/components/three/band-scene";
+import { Reveal } from "@/components/fx/reveal";
 
 export function LegalShell({
   crumb,
@@ -43,7 +44,9 @@ export function LegalShell({
         </div>
       </div>
       <div className="mx-auto max-w-3xl px-5 pb-20 pt-12 sm:px-8">
-        <div className="article">{children}</div>
+        <Reveal y={26}>
+          <div className="article">{children}</div>
+        </Reveal>
       </div>
     </article>
   );

@@ -19,6 +19,8 @@ import { CTA } from "@/components/site/cta";
 import { ProgressRing } from "@/components/app-preview/progress-ring";
 import { BandScene } from "@/components/three/band-scene";
 import { TiltCard } from "@/components/three/tilt-card";
+import { Reveal } from "@/components/fx/reveal";
+import { Watermark } from "@/components/fx/watermark";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -97,8 +99,9 @@ export default function AppPreviewPage() {
       </section>
 
       {/* ════════ DASHBOARD MOCK ════════ */}
-      <section className="bg-background">
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+      <section className="relative overflow-hidden bg-background">
+        <Watermark text="STUDIO" className="top-6 right-[-2%]" />
+        <div className="relative z-[1] mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
           <TiltCard max={3} className="rounded-3xl shadow-lift">
             <div
               role="img"
@@ -212,14 +215,14 @@ export default function AppPreviewPage() {
           </TiltCard>
 
           {/* CTA */}
-          <div className="mt-12 text-center">
+          <Reveal y={30} className="mt-12 text-center">
             <CTA href="/app" variant="solid" className="h-13 px-8 text-base">
               Claim pingmybio.com/you
             </CTA>
             <p className="mt-4 font-mono text-[0.58rem] uppercase tracking-[0.28em] text-muted-foreground">
               Free to start · 300 AI replies/mo · No waitlist
             </p>
-          </div>
+          </Reveal>
         </div>
       </section>
     </>
