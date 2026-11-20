@@ -9,10 +9,10 @@ import { Component, type ReactNode } from "react";
  * backdrop, so the page stays fully intact.
  */
 export class SceneBoundary extends Component<
-  { children: ReactNode },
+  { children: ReactNode; fallback?: ReactNode },
   { failed: boolean }
 > {
-  constructor(props: { children: ReactNode }) {
+  constructor(props: { children: ReactNode; fallback?: ReactNode }) {
     super(props);
     this.state = { failed: false };
   }
@@ -26,7 +26,7 @@ export class SceneBoundary extends Component<
   }
 
   render() {
-    if (this.state.failed) return null;
+    if (this.state.failed) return this.props.fallback ?? null;
     return this.props.children;
   }
 }

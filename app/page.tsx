@@ -21,7 +21,8 @@ import { Magnetic } from "@/components/fx/magnetic";
 import { Reveal } from "@/components/fx/reveal";
 import { Watermark } from "@/components/fx/watermark";
 import { HeroContainer, HeroItem } from "@/components/home/hero-entrance";
-import { PhoneMock } from "@/components/home/phone-mock";
+import { MacbookHero } from "@/components/home/macbook-hero";
+import { MacbookScroll } from "@/components/home/macbook-scroll";
 import { LiveDemo } from "@/components/home/live-demo";
 import {
   MARQUEE_ITEMS,
@@ -148,8 +149,8 @@ export default function HomePage() {
             </HeroContainer>
           </Parallax>
 
-          <Parallax distance={175}>
-            <PhoneMock />
+          <Parallax distance={165}>
+            <MacbookHero />
           </Parallax>
         </div>
 
@@ -165,6 +166,9 @@ export default function HomePage() {
           </span>
         </a>
       </section>
+
+      {/* ════════ MACBOOK SCROLL STORY ════════ */}
+      <MacbookScroll />
 
       {/* ════════ MARQUEE ════════ */}
       <div className="overflow-hidden border-b border-hairline bg-background py-3.5" aria-hidden="true">
