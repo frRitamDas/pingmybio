@@ -647,3 +647,126 @@ body.cursor-hot .cursor-ring { width: 62px; height: 62px; opacity: .9; }
   .scroll-cue { display: none; }
   .hero__rings { opacity: .35; }
 }
+
+/* ============================================================
+   PRO MAX v4 — Liquid Glass buttons · Liquid Metal button ·
+   NumberFlow pricing fan cards · grayscale confetti
+   ============================================================ */
+
+/* ---------- Liquid Glass (frosted white, on dark scenes) ---------- */
+.btn--light {
+  background: rgba(250, 249, 247, .9);
+  border-color: rgba(255, 255, 255, .7);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  backdrop-filter: blur(16px) saturate(1.4);
+  box-shadow:
+    inset 1px 1px 1px rgba(255, 255, 255, .95),
+    inset -1px -1px 1px rgba(13, 13, 13, .06),
+    inset 0 -8px 18px rgba(13, 13, 13, .08),
+    0 0 18px rgba(250, 249, 247, .14),
+    0 12px 32px rgba(0, 0, 0, .32);
+  transition: color .45s var(--ease-io), border-color .45s var(--ease-io), box-shadow .45s var(--ease-io);
+}
+.btn--light:hover {
+  border-color: rgba(255, 255, 255, .9);
+  box-shadow:
+    inset 1px 1px 1px rgba(255, 255, 255, .95),
+    inset -1px -1px 1px rgba(13, 13, 13, .06),
+    inset 0 -8px 18px rgba(13, 13, 13, .08),
+    0 0 26px rgba(250, 249, 247, .22),
+    0 18px 44px rgba(0, 0, 0, .42);
+}
+
+/* ---------- Liquid Metal button (WebGL rim) ---------- */
+.lm-btn {
+  --lm-h: 56px;
+  position: relative; z-index: 0; display: inline-block; height: var(--lm-h); min-width: 216px;
+  perspective: 1000px; border-radius: 999px; text-decoration: none;
+  -webkit-tap-highlight-color: transparent; outline-offset: 4px;
+}
+.lm-btn:focus-visible { outline: 2px solid var(--paper); }
+.lm-btn__shader {
+  position: absolute; inset: 0; z-index: 1; display: block; border-radius: 100px; overflow: hidden;
+  background: linear-gradient(165deg, #f2f2f2 0%, #8f8f8f 14%, #333 32%, #d8d8d8 47%, #545454 62%, #ededed 78%, #232323 90%, #c9c9c9 100%);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, .34),
+    0 34px 12px -2px rgba(0, 0, 0, .04),
+    0 18px 11px -1px rgba(0, 0, 0, .09),
+    0 8px 8px 0 rgba(0, 0, 0, .13),
+    0 2px 5px 0 rgba(0, 0, 0, .17);
+  transition: box-shadow .3s cubic-bezier(.34, 1.56, .64, 1), transform .3s cubic-bezier(.34, 1.56, .64, 1);
+}
+.lm-btn__shader canvas { display: block; width: 100% !important; height: 100% !important; border-radius: 100px; }
+.lm-btn__plate {
+  position: absolute; z-index: 2; inset: 3px; border-radius: 100px;
+  background: linear-gradient(180deg, #1f1f1f 0%, #050505 100%);
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, .55), inset 0 -1px 1px rgba(255, 255, 255, .06);
+  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1), box-shadow .3s;
+  pointer-events: none;
+}
+.lm-btn__label {
+  position: absolute; z-index: 3; inset: 0; display: flex; align-items: center; justify-content: center; gap: .6rem;
+  font-family: var(--sans); font-size: .92rem; font-weight: 550; letter-spacing: .01em;
+  color: #a9a9a9; text-shadow: 0 1px 2px rgba(0, 0, 0, .65);
+  transition: color .3s, transform .3s cubic-bezier(.34, 1.56, .64, 1);
+  pointer-events: none; user-select: none; white-space: nowrap; padding-inline: 1.6rem;
+}
+.lm-btn__label svg { flex: none; }
+.lm-btn:hover .lm-btn__label, .lm-btn.is-hovered .lm-btn__label { color: #f4f4f2; }
+.lm-btn:hover .lm-btn__shader, .lm-btn.is-hovered .lm-btn__shader {
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, .42),
+    0 15px 12px -2px rgba(0, 0, 0, .10),
+    0 9px 9px 0 rgba(0, 0, 0, .13),
+    0 4px 5px 0 rgba(0, 0, 0, .17),
+    0 1px 2px 0 rgba(0, 0, 0, .22);
+}
+.lm-btn.is-pressed .lm-btn__shader { transform: translateY(1px) scale(.985); box-shadow: 0 0 0 1px rgba(0, 0, 0, .5), 0 1px 2px 0 rgba(0, 0, 0, .3); }
+.lm-btn.is-pressed .lm-btn__plate { transform: translateY(1px) scale(.985); box-shadow: inset 0 3px 6px rgba(0, 0, 0, .65); }
+.lm-btn.is-pressed .lm-btn__label { transform: translateY(1px); }
+.lm-btn__ripple {
+  position: absolute; z-index: 4; width: 22px; height: 22px; margin: -11px 0 0 -11px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, .38) 0%, rgba(255, 255, 255, 0) 68%);
+  pointer-events: none; animation: lmRipple .62s ease-out forwards;
+}
+@keyframes lmRipple { 0% { transform: scale(0); opacity: .7; } 100% { transform: scale(4.2); opacity: 0; } }
+
+/* ---------- NumberFlow pricing: 3D fan cards ---------- */
+.plans-pro { perspective: 1300px; }
+.plans-pro .plan { transform-style: preserve-3d; backface-visibility: hidden; box-shadow: 0 18px 46px rgba(13, 13, 13, .08); }
+.plans-pro .plan.reveal {
+  opacity: 0; transform: translateY(88px) scale(.9);
+  transition: transform 1.25s cubic-bezier(.19, 1.32, .36, 1), opacity .7s ease, box-shadow .5s ease;
+  will-change: transform;
+}
+.plans-pro .plan.reveal:nth-child(1) { transform-origin: 100% 60%; }
+.plans-pro .plan.reveal:nth-child(2) { transform-origin: 50% 100%; z-index: 2; }
+.plans-pro .plan.reveal:nth-child(3) { transform-origin: 0% 60%; }
+.plans-pro .plan.reveal.is-in:nth-child(1) { transform: translateX(14px) translateZ(-70px) rotateY(9deg) scale(.93); }
+.plans-pro .plan.reveal.is-in:nth-child(2) { transform: translateY(-14px) translateZ(48px) scale(1.03); }
+.plans-pro .plan.reveal.is-in:nth-child(3) { transform: translateX(-14px) translateZ(-70px) rotateY(-9deg) scale(.93); }
+.plans-pro .plan.reveal.is-in:hover { transform: translateY(-8px) translateZ(0) rotateY(0) scale(1.015); z-index: 6; box-shadow: 0 46px 90px rgba(13, 13, 13, .2); }
+
+.plan__flag--popular { display: inline-flex; align-items: center; gap: .38rem; }
+.plan__flag--popular svg { width: 11px; height: 11px; }
+.plan__billnote { margin: .35rem 0 0; font-size: .68rem; color: var(--grey); font-variant-numeric: tabular-nums; }
+.plan--featured .plan__billnote { color: var(--grey-inv); }
+
+/* ---------- Grayscale confetti canvas ---------- */
+.confetti-canvas { position: fixed; inset: 0; z-index: 4000; pointer-events: none; }
+
+/* ---------- Switch affordance ---------- */
+.switch:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+@media (max-width: 900px) {
+  .plans-pro { perspective: none; }
+  .plans-pro .plan.reveal,
+  .plans-pro .plan.reveal.is-in:nth-child(1),
+  .plans-pro .plan.reveal.is-in:nth-child(2),
+  .plans-pro .plan.reveal.is-in:nth-child(3) { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lm-btn__shader, .lm-btn__plate, .lm-btn__label { transition: none !important; }
+  .lm-btn__ripple { animation: none !important; display: none !important; }
+  .plans-pro .plan.reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+}

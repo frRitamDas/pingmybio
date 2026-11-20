@@ -196,26 +196,106 @@
     });
   });
 
-  /* ---------- Pricing billing toggle ---------- */
+  /* ---------- Pricing billing toggle (NumberFlow) ---------- */
   var billSwitch = document.getElementById("billingSwitch");
   if (billSwitch) {
     var amounts = document.querySelectorAll("[data-monthly]");
+    var billnotes = document.querySelectorAll(".plan__billnote");
     var optMonthly = document.querySelector("[data-opt='monthly']");
     var optYearly = document.querySelector("[data-opt='yearly']");
-    function renderBilling(yearly) {
+
+    /* grayscale confetti — canvas created on demand, removed when done */
+    function confettiFire() {
+      if (prefersReduced) return;
+      var canvas = document.createElement("canvas");
+      canvas.className = "confetti-canvas";
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      document.body.appendChild(canvas);
+      var ctx = canvas.getContext && canvas.getContext("2d");
+      if (!ctx) { if (canvas.parentNode) canvas.parentNode.removeChild(canvas); return; }
+      var rect = billSwitch.getBoundingClientRect();
+      var ox = rect.left + rect.width / 2, oy = rect.top + rect.height / 2;
+      var COLORS = ["#0d0d0d", "#2b2b2b", "#4d4d4d", "#767676", "#a6a6a6", "#ffffff"];
+      var parts = [];
+      for (var i = 0; i < 110; i++) {
+        var angle = Math.random() * Math.PI * 2;
+        var speed = 3.4 + Math.random() * 6.4;
+        parts.push({
+          x: ox + (Math.random() - 0.5) * 30,
+          y: oy + (Math.random() - 0.5) * 12,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed - 3.2,
+          w: 4 + Math.random() * 7,
+          h: 5 + Math.random() * 9,
+          rot: Math.random() * Math.PI,
+          vr: (Math.random() - 0.5) * 0.32,
+          color: COLORS[(Math.random() * COLORS.length) | 0],
+          circle: Math.random() < 0.35,
+          life: 0
+        });
+      }
+      var life = 0, MAX = 118;
+      function frame() {
+        life++;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        var alive = 0;
+        for (var j = 0; j < parts.length; j++) {
+          var p = parts[j];
+          p.life++;
+          p.vy += 0.34; p.vx *= 0.992; p.vy *= 0.995;
+          p.x += p.vx; p.y += p.vy; p.rot += p.vr;
+          var t = p.life / MAX;
+          if (t >= 1 || p.y > canvas.height + 30) continue;
+          alive++;
+          ctx.save();
+          ctx.globalAlpha = Math.max(0, 1 - t * t);
+          ctx.translate(p.x, p.y);
+          ctx.rotate(p.rot);
+          ctx.fillStyle = p.color;
+          if (p.circle) { ctx.beginPath(); ctx.arc(0, 0, p.w / 2, 0, Math.PI * 2); ctx.fill(); }
+          else { ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h); }
+          ctx.restore();
+        }
+        if (alive && life < MAX + 40) requestAnimationFrame(frame);
+        else if (canvas.parentNode) canvas.parentNode.removeChild(canvas);
+      }
+      requestAnimationFrame(frame);
+    }
+
+    /* NumberFlow — expo ease-out counting tween */
+    function tweenAmounts(yearly) {
+      amounts.forEach(function (el) {
+        var to = parseInt(yearly ? el.getAttribute("data-yearly") : el.getAttribute("data-monthly"), 10) || 0;
+        var from = parseInt((el.textContent || "").replace(/[^0-9]/g, ""), 10);
+        if (isNaN(from)) from = to;
+        if (prefersReduced || from === to) { el.textContent = String(to); return; }
+        if (el._pmgTween) cancelAnimationFrame(el._pmgTween);
+        var t0 = performance.now(), D = 560;
+        function step(t) {
+          var p = Math.min(1, (t - t0) / D);
+          var e = p === 1 ? 1 : 1 - Math.pow(2, -10 * p);
+          el.textContent = String(Math.round(from + (to - from) * e));
+          if (p < 1) el._pmgTween = requestAnimationFrame(step);
+        }
+        el._pmgTween = requestAnimationFrame(step);
+      });
+    }
+
+    function renderBilling(yearly, withConfetti) {
       billSwitch.setAttribute("aria-checked", yearly ? "true" : "false");
       if (optMonthly) optMonthly.classList.toggle("is-on", !yearly);
       if (optYearly) optYearly.classList.toggle("is-on", yearly);
-      amounts.forEach(function (el) {
-        el.style.opacity = "0"; el.style.transform = "translateY(10px)";
-        setTimeout(function () {
-          el.textContent = yearly ? el.getAttribute("data-yearly") : el.getAttribute("data-monthly");
-          el.style.opacity = "1"; el.style.transform = "none";
-        }, 140);
+      tweenAmounts(yearly);
+      billnotes.forEach(function (el) {
+        el.textContent = yearly
+          ? (el.getAttribute("data-note-yearly") || "billed annually")
+          : (el.getAttribute("data-note-monthly") || "billed monthly");
       });
+      if (withConfetti && yearly) confettiFire();
     }
     billSwitch.addEventListener("click", function () {
-      renderBilling(billSwitch.getAttribute("aria-checked") !== "true");
+      renderBilling(billSwitch.getAttribute("aria-checked") !== "true", true);
     });
   }
 
