@@ -174,10 +174,11 @@ body.menu-open .mmenu__link:nth-child(5) { transition-delay: .3s } body.menu-ope
 .hero__glow { position: absolute; width: 900px; height: 900px; border-radius: 50%; top: -20%; right: -12%; background: radial-gradient(circle, rgba(250,249,247,.085) 0%, transparent 60%); filter: blur(10px); }
 .hero__glow2 { position: absolute; width: 700px; height: 700px; border-radius: 50%; bottom: -25%; left: -18%; background: radial-gradient(circle, rgba(250,249,247,.05) 0%, transparent 60%); }
 .hero__cross { position: absolute; font-family: var(--mono); color: rgba(250,249,247,.35); font-size: .9rem; user-select: none; }
-.hero__inner { position: relative; max-width: var(--max); margin-inline: auto; padding: clamp(2rem,4vh,4rem) var(--pad); display: grid; grid-template-columns: 1.08fr .92fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; width: 100%; }
+.hero__inner { position: relative; max-width: var(--max); margin-inline: auto; padding: clamp(1.5rem,3vh,3rem) var(--pad) clamp(3rem,6vh,4.5rem); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr); gap: clamp(2rem, 4vw, 4rem); align-items: center; width: 100%; }
 .hero__eyebrow { opacity: 0; }
 body.is-loaded .hero__eyebrow { animation: fadeUp 1s var(--ease) .25s forwards; }
-.hero__title { margin-top: 1.6rem; font-family: var(--serif); font-weight: 480; font-size: clamp(3.1rem, 8.2vw, 7.4rem); line-height: .97; letter-spacing: -.035em; }
+.hero__copy { min-width: 0; max-width: 640px; }
+.hero__title { margin-top: 1.5rem; font-family: var(--serif); font-weight: 480; font-size: clamp(2.5rem, 5.6vw, 4.45rem); line-height: 1.02; letter-spacing: -.03em; text-wrap: balance; }
 .hero__title .it { font-style: italic; font-weight: 400; }
 .mask { display: block; overflow: hidden; padding-bottom: .08em; margin-bottom: -.08em; }
 .mask > span { display: block; transform: translateY(112%); will-change: transform; }
@@ -195,9 +196,9 @@ body.is-loaded .hero__trust { animation: fadeUp 1s var(--ease) .92s forwards; }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
 
 /* Phone scene */
-.hero__visual { position: relative; display: flex; justify-content: center; align-items: center; min-height: 480px; opacity: 0; }
+.hero__visual { position: relative; display: flex; justify-content: center; align-items: center; min-height: 460px; min-width: 0; opacity: 0; }
 body.is-loaded .hero__visual { animation: fadeUp 1.2s var(--ease) .55s forwards; }
-.phone { position: relative; width: clamp(240px, 23vw, 300px); aspect-ratio: 9/19.2; border-radius: 46px; background: linear-gradient(160deg, #2a2a28, #0a0a0a 55%); padding: 10px; box-shadow: 0 60px 120px rgba(0,0,0,.65), inset 0 0 0 1.5px rgba(250,249,247,.22), inset 0 0 0 6px #050505; animation: phoneFloat 7s ease-in-out infinite; z-index: 2; }
+.phone { position: relative; width: clamp(212px, 19.5vw, 268px); aspect-ratio: 9/19.2; border-radius: 46px; background: linear-gradient(160deg, #2a2a28, #0a0a0a 55%); padding: 10px; box-shadow: 0 60px 120px rgba(0,0,0,.65), inset 0 0 0 1.5px rgba(250,249,247,.22), inset 0 0 0 6px #050505; animation: phoneFloat 7s ease-in-out infinite; z-index: 2; }
 @keyframes phoneFloat { 0%,100% { transform: translateY(0) rotate(-.6deg) } 50% { transform: translateY(-18px) rotate(.8deg) } }
 .phone__screen { position: relative; height: 100%; border-radius: 37px; background: #101010; overflow: hidden; display: flex; flex-direction: column; }
 .phone__island { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 34%; height: 22px; border-radius: 999px; background: #000; border: 1px solid rgba(250,249,247,.08); z-index: 5; }
@@ -232,9 +233,9 @@ body.is-loaded .hero__visual { animation: fadeUp 1.2s var(--ease) .55s forwards;
 .float-card__icon { flex: none; width: 30px; height: 30px; border-radius: 9px; border: 1px solid rgba(250,249,247,.3); display: grid; place-items: center; }
 .float-card b { display: block; font-size: .62rem; letter-spacing: .02em; color: var(--paper); }
 .float-card small { display: block; font-family: var(--mono); font-size: .48rem; letter-spacing: .16em; color: var(--grey-inv); text-transform: uppercase; margin-top: .1rem; }
-.float-card--a { top: 16%; right: -4%; animation-delay: -2s; }
-.float-card--b { bottom: 22%; left: -7%; animation-delay: -4.5s; }
-.float-card--c { bottom: 6%; right: 4%; animation-delay: -1s; }
+.float-card--a { top: 15%; right: -1%; animation-delay: -2s; }
+.float-card--b { bottom: 23%; left: -2%; animation-delay: -4.5s; }
+.float-card--c { bottom: 5%; right: 1%; animation-delay: -1s; }
 @keyframes floatY { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-14px) } }
 
 /* Rotating circular text badge */
@@ -578,7 +579,7 @@ body.cursor-hot .cursor-ring { width: 62px; height: 62px; opacity: .9; }
 .skip-link:focus { top: 0; }
 
 /* Hero rings — sonar pulse behind the phone */
-.hero__rings { position: absolute; top: 46%; left: 50%; width: clamp(340px, 44vw, 620px); transform: translate(-50%, -50%); z-index: 1; pointer-events: none; opacity: .6; }
+.hero__rings { position: absolute; top: 45%; left: 50%; width: clamp(300px, 32vw, 470px); transform: translate(-50%, -50%); z-index: 1; pointer-events: none; opacity: .38; }
 .hero__rings .ring { fill: none; stroke: #faf9f7; stroke-width: .8; transform-box: fill-box; transform-origin: center; }
 .hero__rings .ring--1 { animation: ringPulse 3.6s ease-out infinite; }
 .hero__rings .ring--2 { animation: ringPulse 3.6s ease-out 1.2s infinite; }
