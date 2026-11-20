@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /app_profile.html
+Sitemap: https://www.pingmybio.com/sitemap.xml
