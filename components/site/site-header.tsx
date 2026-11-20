@@ -8,6 +8,7 @@ import { Menu, X, ArrowUpRight } from "lucide-react";
 import { LogoMark } from "@/components/site/logo";
 import { NAV_LINKS } from "@/lib/site";
 import { Magnetic } from "@/components/fx/magnetic";
+import { PaletteTrigger } from "@/components/fx/command-palette";
 import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
@@ -79,6 +80,7 @@ export function SiteHeader() {
           </nav>
 
           <div className="hidden items-center gap-2 md:flex">
+            <PaletteTrigger className="inline-flex" />
             <Link
               href="/app"
               className="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"

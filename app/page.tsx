@@ -21,11 +21,11 @@ import { Magnetic } from "@/components/fx/magnetic";
 import { Reveal } from "@/components/fx/reveal";
 import { Watermark } from "@/components/fx/watermark";
 import { HeroContainer, HeroItem } from "@/components/home/hero-entrance";
+import { Spotlight } from "@/components/fx/spotlight";
 import { MacbookHero } from "@/components/home/macbook-hero";
 import { MacbookScroll } from "@/components/home/macbook-scroll";
 import { LiveDemo } from "@/components/home/live-demo";
 import {
-  MARQUEE_ITEMS,
   FAQS_HOME,
   TESTIMONIALS,
   STATS,
@@ -35,6 +35,15 @@ import {
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
+
+const KINETIC_WORDS = [
+  "Answers",
+  "Books",
+  "Sells",
+  "Answers",
+  "Books",
+  "Sells",
+];
 
 const softwareJsonLd = {
   "@context": "https://schema.org",
@@ -170,16 +179,16 @@ export default function HomePage() {
       {/* ════════ MACBOOK SCROLL STORY ════════ */}
       <MacbookScroll />
 
-      {/* ════════ MARQUEE ════════ */}
-      <div className="overflow-hidden border-b border-hairline bg-background py-3.5" aria-hidden="true">
-        <div className="animate-marquee flex w-max items-center gap-10">
-          {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, i) => (
+      {/* ════════ KINETIC TYPOGRAPHY BAND ════════ */}
+      <div className="overflow-hidden border-y border-white/5 bg-[#000] py-4 sm:py-6" aria-hidden="true">
+        <div className="animate-marquee flex w-max items-center">
+          {[...KINETIC_WORDS, ...KINETIC_WORDS].map((word, i) => (
             <span
               key={i}
-              className="flex items-center gap-3 whitespace-nowrap font-mono text-[0.62rem] uppercase tracking-[0.25em] text-muted-foreground"
+              className="flex items-center whitespace-nowrap text-[clamp(2.6rem,7vw,5.5rem)] font-extrabold uppercase leading-none tracking-[-0.035em]"
             >
-              <Sparkles className="h-3 w-3" aria-hidden="true" />
-              {item}
+              <span className="pmg-outline px-6 sm:px-10">{word}</span>
+              <Sparkles className="h-5 w-5 flex-none text-white/75 sm:h-7 sm:w-7" strokeWidth={1.5} />
             </span>
           ))}
         </div>
@@ -226,6 +235,7 @@ export default function HomePage() {
           <div className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-12">
             {/* 01 — Assistant */}
             <TiltCard max={5} className="rounded-3xl md:col-span-7">
+              <Spotlight tone="light" className="h-full">
               <article className="flex h-full flex-col rounded-3xl border border-hairline bg-background p-6 shadow-card md:p-8">
               <p className="font-mono text-[0.58rem] uppercase tracking-[0.28em] text-muted-foreground">
                 01 — Assistant <span className="text-foreground/60">· Always on</span>
@@ -250,10 +260,12 @@ export default function HomePage() {
                 page; a stand-in that sounds like you.
               </p>
             </article>
+              </Spotlight>
             </TiltCard>
 
             {/* 02 — Offers */}
             <TiltCard max={5} className="rounded-3xl md:col-span-5">
+              <Spotlight tone="light" className="h-full">
               <article className="flex h-full flex-col rounded-3xl border border-hairline bg-secondary/50 p-6 md:p-8">
               <p className="font-mono text-[0.58rem] uppercase tracking-[0.28em] text-muted-foreground">
                 02 — Offers <span className="text-foreground/60">· Convert</span>
@@ -286,10 +298,12 @@ export default function HomePage() {
                 right next step without a maze of tabs.
               </p>
             </article>
+              </Spotlight>
             </TiltCard>
 
             {/* 03 — Work with me */}
             <TiltCard max={5} className="rounded-3xl md:col-span-5">
+              <Spotlight tone="dark" className="h-full">
               <article className="flex h-full flex-col rounded-3xl bg-ink p-6 text-ink-foreground md:p-8">
               <p className="font-mono text-[0.58rem] uppercase tracking-[0.28em] text-ink-muted">
                 03 — Work with me <span className="text-white/50">· For brands</span>
@@ -322,10 +336,12 @@ export default function HomePage() {
                 research and a reply brief waiting in your Inbox.
               </p>
             </article>
+              </Spotlight>
             </TiltCard>
 
             {/* 04 — Knowledge + Inbox */}
             <TiltCard max={5} className="rounded-3xl md:col-span-7">
+              <Spotlight tone="light" className="h-full">
               <article className="flex h-full flex-col rounded-3xl border border-hairline bg-background p-6 shadow-card md:p-8">
               <p className="font-mono text-[0.58rem] uppercase tracking-[0.28em] text-muted-foreground">
                 04 — Knowledge + Inbox <span className="text-foreground/60">· One place</span>
@@ -363,6 +379,7 @@ export default function HomePage() {
                 calm inbox.
               </p>
             </article>
+              </Spotlight>
             </TiltCard>
           </div>
         </div>
@@ -407,8 +424,8 @@ export default function HomePage() {
                 meta: "Checkout · Calendar · Inbox",
               },
             ].map((step) => (
-              <li key={step.num} className="bg-ink p-7 md:p-9">
-                <p className="tnum font-mono text-5xl font-medium text-white/15">
+              <li key={step.num} className="group bg-ink p-7 transition-colors duration-300 hover:bg-[#101014] md:p-9">
+                <p className="tnum font-mono text-5xl font-medium text-white/15 transition-colors duration-300 group-hover:text-white/35">
                   {step.num}
                 </p>
                 <h3 className="mt-8 text-xl font-semibold tracking-tight">
@@ -508,6 +525,7 @@ export default function HomePage() {
           <Reveal y={28} className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {TESTIMONIALS.map((t) => (
               <TiltCard key={t.name} max={6}>
+                <Spotlight tone="light" className="h-full">
                 <figure className="flex h-full flex-col rounded-3xl border border-hairline bg-card p-6 shadow-card">
                 <Stars className="text-foreground" />
                 <blockquote className="mt-4 flex-1 leading-relaxed text-foreground/90">
@@ -523,6 +541,7 @@ export default function HomePage() {
                   </span>
                 </figcaption>
                 </figure>
+                </Spotlight>
               </TiltCard>
             ))}
           </Reveal>

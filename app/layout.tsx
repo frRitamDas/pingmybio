@@ -8,6 +8,8 @@ import { LenisProvider } from "@/components/fx/lenis-provider";
 import { ScrollProgress } from "@/components/fx/scroll-progress";
 import { Grain } from "@/components/fx/grain";
 import { Splash } from "@/components/fx/splash";
+import { CommandPalette } from "@/components/fx/command-palette";
+import { BookingToasts } from "@/components/fx/booking-toasts";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -85,6 +87,8 @@ export default function RootLayout({
           <ScrollProgress />
           <Grain />
           <Splash />
+          <CommandPalette />
+          <BookingToasts />
         </LenisProvider>
         <script
           type="application/ld+json"

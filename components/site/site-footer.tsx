@@ -121,9 +121,15 @@ export function SiteFooter() {
 
         {/* Bottom bar */}
         <div className="flex flex-col items-start justify-between gap-4 border-t border-hairline py-5 sm:flex-row sm:items-center">
-          <p className="text-xs text-muted-foreground">
-            © {year} PingMyBio
-          </p>
+          <div className="flex items-center gap-3">
+            <p className="hidden items-center gap-1.5 text-xs text-muted-foreground sm:flex">
+              <kbd className="rounded-md border border-border bg-background px-1.5 py-0.5 font-mono text-[0.6rem]">⌘K</kbd>
+              quick navigate
+            </p>
+            <p className="text-xs text-muted-foreground">
+              © {year} PingMyBio
+            </p>
+          </div>
           <nav aria-label="Legal" className="flex items-center gap-5">
             <Link href="/privacy" className="text-xs text-muted-foreground transition-colors hover:text-foreground">
               Privacy
