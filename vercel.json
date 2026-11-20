@@ -2,13 +2,34 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/pricing.html", "destination": "/pricing", "permanent": true },
+    { "source": "/blog.html", "destination": "/blog", "permanent": true },
+    { "source": "/app_profile.html", "destination": "/app", "permanent": true },
+    { "source": "/privacy.html", "destination": "/privacy", "permanent": true },
+    { "source": "/terms.html", "destination": "/terms", "permanent": true },
+    { "source": "/blog_how-to-set-up-ai-storefront.html", "destination": "/blog/how-to-set-up-ai-storefront", "permanent": true },
+    { "source": "/blog_linktree-alternative.html", "destination": "/blog/linktree-alternative", "permanent": true },
+    { "source": "/blog_stan-store-alternative.html", "destination": "/blog/stan-store-alternative", "permanent": true },
+    { "source": "/blog_tiktok-link-in-bio.html", "destination": "/blog/tiktok-link-in-bio", "permanent": true }
+  ],
   "headers": [
+    {
+      "source": "/_next/static/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
     {
       "source": "/assets/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
+          "value": "public, max-age=86400, stale-while-revalidate=604800"
         }
       ]
     },
